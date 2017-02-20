@@ -9,6 +9,7 @@ import java.util.Date;
  */
 
 @Entity
+@IdClass(UserRecipeId.class)
 @Table(name = "users_recipes")
 public class UserRecipe implements Serializable {
 
@@ -22,6 +23,7 @@ public class UserRecipe implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 
     @Id
     @ManyToOne
