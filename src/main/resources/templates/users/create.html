@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head(title=${'Register'})">
+    ...
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <div th:replace="fragments/form :: register_form(user=${user})">...</div>
+    </div>
+    <div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>
