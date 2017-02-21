@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head(title=${'Welcome'})">
+    ...
+</head>
+<body>
+<div class="overlay">
+    <img src="../img/Logo_Circle.svg" class="logo" />
+    <!--<h1>Full Plate</h1>-->
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" poster="../img/static-food.jpg" id="bgvid">
+    <!--<source src="" type="video/webm">-->
+        <source src="../img/food.mp4" type="video/mp4" />
+    </video>
+</div>
+</body>
+</html>
