@@ -1,6 +1,7 @@
 package com.cookplanner.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Created by Yassine on 2/17/17.
@@ -21,6 +22,9 @@ public class Ingredient {
     @ManyToOne
     @JoinColumn(name = "categories_id")
     private Category category;
+
+    @OneToMany(mappedBy = "ingredient")
+    List<IngredientList> ingredientLists;
 
     public Ingredient() {
     }

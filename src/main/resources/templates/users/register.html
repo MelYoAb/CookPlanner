@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Register</title>
+<head th:replace="fragments/header :: head(title=${'Register'})">
+    ...
 </head>
 <body>
 <!--<nav th:include="fragments/navbar :: navbar"></nav>-->
 <h1>Register</h1>
+<div class="container">
+    <form th:action="@{/register}" th:method="post" th:object="${user}">
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="first_name">First Name</label>
+                <input th:field="*{first_name}" id="first_name"/>
+                <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"/>
+            </div>
+            <div class="input-field col s6">
+                <label for="last_name">Last Name</label>
+                <input th:field="*{last_name}" id="last_name"/>
+                <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"/>
+            </div>
+        </div> <!--end row -->
 
-<form th:action="@{/register}" th:method="post" th:object="${user}">
-    <label for="first_name">First Name</label>
-    <input th:field="*{first_name}" id="first_name" />
-    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}" />
+        <div class="row">
+            <div class="input-field col s">
+                <label for="email">Email</label>
+                <input th:field="*{email}" id="email"/>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+            </div>
+            <div class="input-field col s6">
+                <label for="phone_number">Phone Number</label>
+                <input th:field="*{phone_number}" id="phone_number"/>
+                <p th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"/>
+            </div>
+        </div> <!-- end row -->
 
-    <label for="last_name">Last Name</label>
-    <input th:field="*{last_name}" id="last_name" />
-    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" />
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="username">Username</label>
+                <input th:field="*{username}" id="username"/>
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
+            </div>
+            <div class="input-field col s6">
+                <label for="password">Password</label>
+                <input th:field="*{password}" id="password" type="password"/>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+            </div>
+        </div> <!-- end row -->
 
-    <label for="username">Username</label>
-    <input th:field="*{username}" id="username" />
-    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
+        <div class="form-group input-field col s6">
+            <label for="password_confirm">Confirm Your Password</label>
+            <input type="password" id="password_confirm" name="password_confirm" class="form-control"/>
+        </div>
 
-    <label for="email">Email</label>
-    <input th:field="*{email}" id="email" />
-    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
-
-    <label for="phone_number">Phone Number</label>
-    <input th:field="*{phone_number}" id="phone_number" />
-    <p th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}" />
-
-    <label for="password">Password</label>
-    <input th:field="*{password}" id="password" type="password" />
-    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
-
-    <div class="form-group">
-        <label for="password_confirm">Confirm Your Password</label>
-        <input type="password" id="password_confirm" name="password_confirm" class="form-control"/>
-    </div>
-
-    <input type="submit" value="Register" />
-    <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
-</form>
+        <input class="btn waves-effect waves-light" type="submit" value="Register"/>
+        <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
+    </form>
+</div>
 </body>
 </html>

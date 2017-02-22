@@ -1,0 +1,79 @@
+
+.flipbox {
+    width: 250px;
+    height: 210px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.flipbox>.front {
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+    width: 260px;
+    height: 210px;
+    border-radius: 9px;
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    color: #39b725;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.flipbox>.back {
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    background-color: red;
+    width: 260px;
+    height: 210px;
+    border-radius: 9px;
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+}
+
+.flipbox:hover>.front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.flipbox:hover>.back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+
+
+#front-meat {
+    background-color: red;
+    color: #060000;
+}
+
+#front-produce {
+    background-color: #36ff39;
+    color: #060000;
+}
+
+#front-spices {
+    background-color: #ff972d;
+    color: #060000;
+}
+
+#front-dairy {
+    background-color: #bababa;
+    color: #060000;
+}
+
+
+.bg_meat {
+    background-image: url(../IMG/meat.jpg);
+}
+
+.bg_produce {
+    background-image: url(../IMG/veggies.jpg);
+}
+
+.bg_spices {
+    background-image: url(../IMG/spices.jpg);
+}
+
+.bg_dairy {
+    background-image: url(../IMG/dairy.jpg);
+}

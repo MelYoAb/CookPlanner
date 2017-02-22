@@ -1,11 +1,10 @@
 package com.cookplanner.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * @author Created by Yassine on 2/17/17.
@@ -41,8 +40,8 @@ public class User {
     @Column(nullable = false)
     @NotBlank(message = "Your password cannot be empty ")
     @Size(min = 8, message = "Your password must be at least 8 characters")
+    @JsonIgnore
     private String password;
-
 
     public User() {
     }
@@ -112,4 +111,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

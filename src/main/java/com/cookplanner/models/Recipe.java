@@ -32,6 +32,8 @@ public class Recipe {
     @Column(name = "image")
     private String image;
 
+    @OneToMany(mappedBy = "recipe")
+    List<IngredientList> ingredientLists;
 
     public Recipe() {
     }
@@ -91,5 +93,4 @@ public class Recipe {
     public void setImage(String image) {
         this.image = image;
     }
-
 }
