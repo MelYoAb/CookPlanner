@@ -21,6 +21,5 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Ingredient> ingredients;
-
 }
 
