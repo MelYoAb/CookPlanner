@@ -23,7 +23,7 @@ public class CalendarController {
 
     @GetMapping("/calendar.json")
     public @ResponseBody
-    List<UserRecipe> retrieveAllPosts(){
+    List<UserRecipe> retrieveAllData(){
        User user =(User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return  calendarsDao.listOfRecipes(user.getId());
 
@@ -31,10 +31,13 @@ public class CalendarController {
 
 
     @GetMapping("/")
-    public String firstPage(Model model){
+    public String showCalendar(Model model){
         model.addAttribute("calendars", Collections.emptyList());
         return "calendar/show";
     }
-
+    @GetMapping("/googlecalendar")
+    public String showGoogleCalendar(){
+        return "calendar/googleCalendar";
+    }
 
 }
