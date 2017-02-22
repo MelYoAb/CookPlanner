@@ -33,11 +33,8 @@ public class CalendarController {
     @GetMapping("/")
     public String showCalendar(Model model){
         model.addAttribute("calendars", Collections.emptyList());
-        return "calendar/show";
+        return "calendar/signGoogle";
     }
-    @GetMapping("/googlecalendar")
-    public String showGoogleCalendar(){
-        return "calendar/googleCalendar";
-    }
+
 
 }
