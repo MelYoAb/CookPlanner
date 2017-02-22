@@ -11,27 +11,37 @@ import java.io.Serializable;
 @Table(name = "ingredients_list")
 public class IngredientList implements Serializable {
 
-    @Column(name = "qty")
-    private double qty;
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "qty")
+    private String qty;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "ingredients_id")
+
     private Ingredient ingredient;
 
-    @Id
+
     @ManyToOne
-    @JoinColumn(name = "recipes_id")
     private Recipe recipe;
 
     public IngredientList() {
     }
 
-    public double getQty() {
+    public String getQty() {
         return qty;
     }
 
-    public void setQty(double qty) {
+    public void setQty(String qty) {
         this.qty = qty;
     }
 
