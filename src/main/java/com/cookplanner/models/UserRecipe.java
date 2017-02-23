@@ -1,5 +1,7 @@
 package com.cookplanner.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -9,10 +11,12 @@ import java.util.Date;
  */
 
 @Entity
+@IdClass(UserRecipeId.class)
 @Table(name = "users_recipes")
 public class UserRecipe implements Serializable {
 
     @Column(name = "date")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm")
     private Date date;
 
     @Column(name = "cost")
@@ -22,6 +26,7 @@ public class UserRecipe implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 
     @Id
     @ManyToOne
