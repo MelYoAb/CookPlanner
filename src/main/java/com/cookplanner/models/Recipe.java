@@ -1,7 +1,6 @@
 package com.cookplanner.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * @author Created by Yassine on 2/17/17.
