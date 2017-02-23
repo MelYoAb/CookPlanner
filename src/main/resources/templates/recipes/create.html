@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Create Recipe</title>
-    <link rel="stylesheet" href="/CSS/ingredients[].css"/>
+    <link rel="stylesheet" href="/CSS/ingredients.css"/>
 </head>
 <body>
 
@@ -42,24 +42,35 @@
     </div>
     <hr/>
 
-    <h2>Select ingredients[]</h2>
+    <h2>Select ingredients</h2>
 
     <div th:class="wrapper">
         <div class="flipbox">
             <div class="front  bg_meat"><h3 id="front-meat">Meat</h3></div>
             <div class="back" id="red">
                 <input id="Pepperoni" name="ingredients[]" type="checkbox" value="Pepperoni" />
-                <label for="Pepperoni">Pepperoni</label><br/>
+                <label for="Pepperoni">Pepperoni</label>
+                <input  name="qnty[]" type="text" value="" /><br/>
+
                 <input id="sausage" name="ingredients[]" type="checkbox" value="sausage"/>
-                <label for="sausage">Sausage</label><br/>
+                <label for="sausage">Sausage</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="ham" name="ingredients[]" type="checkbox" value="ham"/>
-                <label for="ham">Ham</label><br/>
+                <label for="ham">Ham</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="chicken" name="ingredients[]" type="checkbox" value="chicken"/>
-                <label for="chicken">Chicken</label><br/>
+                <label for="chicken">Chicken</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="bacon" name="ingredients[]" type="checkbox" value="bacon"/>
-                <label for="bacon">Bacon</label><br/>
+                <label for="bacon">Bacon</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="beef" name="ingredients[]" type="checkbox" value="beef"/>
                 <label for="beef">Beef</label>
+                <input name="qnty[]" type="text" value="" /><br/>
             </div>
         </div>
 
@@ -67,17 +78,28 @@
             <div class="front  bg_produce"><h3 id="front-produce">Produce</h3></div>
             <div class="back" id="produce">
                 <input id="mushrooms" name="ingredients[]" type="checkbox" value="mushrooms"/>
-                <label for="mushrooms">Mushrooms</label><br/>
+                <label for="mushrooms">Mushrooms</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="onions" name="ingredients[]" type="checkbox" value="onions"/>
-                <label for="onions">Onions</label><br/>
+                <label for="onions">Onions</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="cherry_Peppers" name="ingredients[]" type="checkbox" value="cherry_Peppers"/>
-                <label for="cherry_Peppers">Cherry_Peppers</label><br/>
+                <label for="cherry_Peppers">Cherry_Peppers</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="olives" name="ingredients[]" type="checkbox" value="olives"/>
-                <label for="olives">Olives</label><br/>
+                <label for="olives">Olives</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="green_peppers" name="ingredients[]" type="checkbox" value="green_peppers"/>
-                <label for="green_peppers">Green Peppers</label><br/>
+                <label for="green_peppers">Green Peppers</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="jalapeno" name="ingredients[]" type="checkbox" value="jalapeno"/>
                 <label for="jalapeno">Jalapeno</label>
+                <input name="qnty[]" type="text" value="" /><br/>
             </div>
         </div>
 
@@ -85,17 +107,28 @@
             <div class="front  bg_spices"><h3 id="front-spices">Spices</h3></div>
             <div class="back" id="spices">
                 <input id="ground_cumin" name="ingredients[]" type="checkbox" value="ground_cumin"/>
-                <label for="ground_cumin">Ground Cumin</label><br/>
+                <label for="ground_cumin">Ground Cumin</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="basil" name="ingredients[]" type="checkbox" value="basil"/>
-                <label for="basil">Basil</label><br/>
+                <label for="basil">Basil</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="black_paper" name="ingredients[]" type="checkbox" value="black_paper"/>
-                <label for="black_paper">Black Pepper</label><br/>
+                <label for="black_paper">Black Pepper</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="salt" name="ingredients[]" type="checkbox" value="salt"/>
-                <label for="salt">Salt</label><br/>
+                <label for="salt">Salt</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="paprika" name="ingredients[]" type="checkbox" value="paprika"/>
-                <label for="paprika">Paprika</label><br/>
+                <label for="paprika">Paprika</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="thyme" name="ingredients[]" type="checkbox" value="thyme"/>
                 <label for="thyme">Thyme</label>
+                <input name="qnty[]" type="text" value="" /><br/>
             </div>
         </div>
 
@@ -103,23 +136,34 @@
             <div class="front  bg_dairy"><h3 id="front-dairy">Dairy</h3></div>
             <div class="back" id="dairy">
                 <input id="cheeses" name="ingredients[]" type="checkbox" value="cheeses"/>
-                <label for="cheeses">Cheeses</label><br/>
+                <label for="cheeses">Cheeses</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="milk" name="ingredients[]" type="checkbox" value="milk"/>
-                <label for="milk">Milk</label><br/>
+                <label for="milk">Milk</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="butter" name="ingredients[]" type="checkbox" value="butter"/>
-                <label for="butter">Butter</label><br/>
+                <label for="butter">Butter</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="yogurt" name="ingredients[]" type="checkbox" value="yogurt"/>
-                <label for="yogurt">Yogurt</label><br/>
+                <label for="yogurt">Yogurt</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="cream_cheese" name="ingredients[]" type="checkbox" value="cream_cheese"/>
-                <label for="cream_cheese">Cream Cheese</label><br/>
+                <label for="cream_cheese">Cream Cheese</label>
+                <input name="qnty[]" type="text" value="" /><br/>
+
                 <input id="eggs" name="ingredients[]" type="checkbox" value="eggs"/>
                 <label for="eggs">eggs</label>
+                <input name="qnty[]" type="text" value="" /><br/>
             </div>
         </div>
     </div>
     <br />
     <hr />
-    <h2>New ingredients[] </h2>
+    <h2>New ingredients</h2>
 
     <label for="new_ingredient">Ingredient</label>
     <input type="text" id="new_ingredient"/>
