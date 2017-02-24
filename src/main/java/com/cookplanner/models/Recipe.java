@@ -1,6 +1,7 @@
 package com.cookplanner.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Created by Yassine on 2/17/17.
@@ -17,7 +18,8 @@ public class Recipe {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "instruction")
+    @Column(name = "instruction", length = 1000)
+
     private String instruction;
 
     @Column(name = "prep_time")
