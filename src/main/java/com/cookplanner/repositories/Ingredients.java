@@ -9,6 +9,6 @@ import java.util.List;
 /**
  * @author Created by Yassine on 2/22/17.
  */
-public interface Ingredients extends CrudRepository<Ingredient, Integer> {
+public interface Ingredients extends CrudRepository<Ingredient, Long> {
 
 }
