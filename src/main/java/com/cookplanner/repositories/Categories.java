@@ -1,7 +1,10 @@
 package com.cookplanner.repositories;
 
+import com.cookplanner.models.Category;
+import org.springframework.data.repository.CrudRepository;
+
 /**
- * Created by apple on 2/24/17.
+ * @author Created by Yassine on 2/24/17.
  */
-public interface Categories {
+public interface Categories extends CrudRepository <Category, Long> {
 }

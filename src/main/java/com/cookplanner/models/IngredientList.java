@@ -27,7 +27,6 @@ public class IngredientList implements Serializable {
     }
 
     @ManyToOne
-
     private Ingredient ingredient;
 
 

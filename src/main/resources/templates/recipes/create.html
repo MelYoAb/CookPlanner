@@ -26,9 +26,6 @@
     <input th:field="*{cook_time}" id="cook_time"/>
     <p th:if="${#fields.hasErrors('cook_time')}" th:errors="*{cook_time}"/>
 
-    <label for="myDate">Recipe Date</label>
-    <input type="date" id="myDate" value="yyyy-mm-dd"/>
-
     <label for="season">Season</label>
     <select th:field="*{season}" id="season">
         <option value="winter_fall">Winter/Fall</option>
@@ -166,10 +163,21 @@
     <h2>New ingredients</h2>
 
     <label for="new_ingredient">Ingredient</label>
-    <input type="text" id="new_ingredient"/>
+    <input type="text" name = "new_ingredient" id="new_ingredient"/>
+
+    <label for="categories">Category</label>
+    <select name="selectedCategory" id="categories">
+        <option value="meat">Meat</option>
+        <option value="produce">Produce</option>
+        <option value="spices">Spices</option>
+        <option value="dairy">Dairy</option>
+        <option value="frozen">Frozen</option>
+        <option value="misc">Misc</option>
+        <option value="other">Other</option>
+    </select>
 
     <label for="quantity">Quantity</label>
-    <input type="text" id="quantity"/><br />
+    <input type="text" name="quantity" id="quantity"/><br />
 
     <input type="submit" value="Create"/>
     <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
