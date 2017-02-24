@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
  * Created by apple on 2/22/17.
  */
 @Repository
-public interface IngredientsList extends CrudRepository<IngredientList, Integer> {
+public interface IngredientsList extends CrudRepository<IngredientList, Long> {
 
-    @Query("select i.id from Ingredient i where i.ingredient=?1")
+    @Query("select i from Ingredient i where i.ingredient=?1")
     public Ingredient findByIngredient (String ingredient);
 }
