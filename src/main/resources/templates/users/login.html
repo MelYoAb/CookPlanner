@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Log In</title>
-    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css' />
-    <link rel="stylesheet" href="/CSS/style.css"/>
+<head th:replace="fragments/header :: head(title=${'Login'})">
+    ...
 </head>
 <body>
 <div th:if="${param.error}">
