@@ -3,6 +3,7 @@ package com.cookplanner.controller;
 import com.cookplanner.models.Ingredient;
 import com.cookplanner.models.IngredientList;
 import com.cookplanner.models.Recipe;
+import com.cookplanner.repositories.Ingredients;
 import com.cookplanner.repositories.IngredientsList;
 import com.cookplanner.repositories.Recipes;
 import com.cookplanner.services.UserSvc;
@@ -20,6 +21,8 @@ import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Created by Yassine on 2/20/17.
@@ -33,8 +36,12 @@ public class RecipeController {
 
     @Autowired
     UserSvc userSvc;
+
     @Autowired
-    IngredientsList ingredientsList;
+    IngredientsList ingredientsListSrv;
+
+    @Autowired
+    Ingredients ingredientsDAO;
 
     @Value("${uploads}")
     private  String uploadPath;
@@ -48,7 +55,8 @@ public class RecipeController {
     @PostMapping("/create")
     public String createRecipe (@Valid Recipe recipe, Errors validation, Model model,
                                 @RequestParam(name = "image_file") MultipartFile uploadedFile,
-                                @RequestParam(value = "ingredients[]") String[] ingredients) {
+                                @RequestParam(value = "ingredients[]") String[] ingredients,
+                                @RequestParam(value = "qnty[]") List<String> qnty) {
 
         if(validation.hasErrors()){
             model.addAttribute("errors", validation);
@@ -74,9 +82,29 @@ public class RecipeController {
         recipe.setImage(filename);
         Recipe savedRecipe = recipesDao.save(recipe);
 
-        for (String ingr: ingredients
-             ) {
-            System.out.println(ingr);
+        int counter=0;
+
+        List<String> newArray = new ArrayList<>();
+        for (String q : qnty) {
+            if (!(q.equals(""))) {
+                newArray.add(q);
+            }
+        }
+        System.out.println(qnty.size());
+        System.out.println(newArray.size());
+        System.out.println(counter);
+
+        for (String ingr: ingredients) {
+            IngredientList ingredientList = new IngredientList();
+            ingredientList.setRecipe(savedRecipe);
+            Ingredient savedIngredient = ingredientsListSrv.findByIngredient(ingr);
+            ingredientList.setIngredient(savedIngredient);
+
+            ingredientList.setQty(newArray.get(counter));
+            counter++;
+
+
+            ingredientsListSrv.save(ingredientList);
         }
 
 
