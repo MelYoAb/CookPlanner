@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Create Recipe</title>
-    <link rel="stylesheet" href="/CSS/ingredients[].css"/>
+<head th:replace="fragments/header :: head(title=${'Something New'})">
+    ...
 </head>
 <body>
 
@@ -38,7 +36,9 @@
 
     <div>
         <label for="image_file">Upload a file!</label>
-        <input id="image_file" name="image_file" type="file"/>
+        <input id="image_file" name="image_file" type="hidden"/>
+        <input type="filepicker" data-fp-apikey="ASRy7EtmQ2WEbPx5YegpQz"
+               onchange="dfg(event.fpfile.url)" />
     </div>
     <hr/>
 
@@ -130,6 +130,6 @@
     <input type="submit" value="Create"/>
     <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
 </form>
-
+<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 </body>
 </html>
