@@ -37,12 +37,23 @@ video#bgvid {
 }
 
 .overlay > img {
-    z-index:1;
+    z-index: 1;
     position: absolute;
-    top: 40%;
+    top: 30%;
     bottom: 50%;
     left: 40%;
     right: 50%;
+}
+.overlay > .skinny {
+    z-index: 1;
+    position: absolute;
+    top: 60%;
+    bottom: 30%;
+    left: 40%;
+    right: 50%;
+}
+.skinny {
+    width: 20%;
 }
 
 /*Begin dashboard view here*/
@@ -54,7 +65,7 @@ video#bgvid {
     flex-direction: column;
     flex-wrap: wrap;
     max-height: 700px;
-    max-width: 70%;
+    max-width: 75%;
 }
 
 #masonry img {
@@ -70,3 +81,4 @@ video#bgvid {
 #masonry:hover img:hover {
     opacity: 1;
 }
+
