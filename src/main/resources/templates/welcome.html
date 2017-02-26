@@ -22,10 +22,14 @@
         <a href="#" id="sign-in" class="btn waves-effect waves-teal scale-transition">SIGN IN</a>
         <a href="#" id="sign-up" class="btn waves-effect waves-teal scale-transition">SIGN UP</a>
         <form class="login scale-transition scale-out" th:action="@{/login}" method="post">
-            <label class="login scale-transition scale-out" for="username">Username</label>
-            <input class="login scale-transition scale-out" id="username" name="username" type="text"/>
-            <label class="login scale-transition scale-out" for="password">Password</label>
-            <input class="login scale-transition scale-out" id="password" name="password" type="password"/>
+            <div class="input-field">
+                <label class="login scale-transition scale-out" for="username">Username</label>
+                <input class="login scale-transition scale-out" id="username" name="username" type="text"/>
+            </div>
+            <div class="input-field">
+                <label class="login scale-transition scale-out" for="password">Password</label>
+                <input class="login scale-transition scale-out" id="password" name="password" type="password"/>
+            </div>
             <input class="login btn waves-effect waves-light scale-transition scale-out" type="submit" value="LOG IN"/>
         </form>
     </div>
