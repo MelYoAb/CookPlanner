@@ -1,185 +1,112 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: head(title=${'Something New'})">
-    <link rel="stylesheet" href="/CSS/ingredients[].css"/>
+    ...
 </head>
 <body>
+<div class="container">
+    <h3>Add a Recipe</h3>
 
-<h1>Create a recipe</h1>
-
-<form th:action="@{/create}" th:method="post" th:object="${recipe}" enctype="multipart/form-data">
-    <label for="title">Title</label>
-    <input th:field="*{title}" id="title"/>
-    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
-
-    <label for="instruction">Instructions</label>
-    <textarea th:field="*{instruction}" id="instruction"></textarea>
-    <p th:if="${#fields.hasErrors('instruction')}" th:errors="*{instruction}"/>
-
-    <label for="prep_time">Prep time</label>
-    <input th:field="*{prep_time}" id="prep_time"/>
-    <p th:if="${#fields.hasErrors('prep_time')}" th:errors="*{prep_time}"/>
-
-    <label for="cook_time">Cook Time</label>
-    <input th:field="*{cook_time}" id="cook_time"/>
-    <p th:if="${#fields.hasErrors('cook_time')}" th:errors="*{cook_time}"/>
-
-    <label for="season">Season</label>
-    <select th:field="*{season}" id="season">
-        <option value="winter_fall">Winter/Fall</option>
-        <option value="spring_summer">Spring/Summer</option>
-    </select>
-    <p th:if="${#fields.hasErrors('season')}" th:errors="*{season}"/>
-
-    <div>
-        <label for="image_file">Upload a file!</label>
-        <input id="image_file" name="image_file" type="file"/>
-    </div>
-    <hr/>
-
-    <h2>Select ingredients</h2>
-
-    <div th:class="wrapper">
-        <div class="flipbox">
-            <div class="front  bg_meat"><h3 id="front-meat">Meat</h3></div>
-            <div class="back" id="red">
-                <input id="Pepperoni" name="ingredients[]" type="checkbox" value="Pepperoni" />
-                <label for="Pepperoni">Pepperoni</label>
-                <input  name="qnty[]" type="text" value="" /><br/>
-
-                <input id="sausage" name="ingredients[]" type="checkbox" value="sausage"/>
-                <label for="sausage">Sausage</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="ham" name="ingredients[]" type="checkbox" value="ham"/>
-                <label for="ham">Ham</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="chicken" name="ingredients[]" type="checkbox" value="chicken"/>
-                <label for="chicken">Chicken</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="bacon" name="ingredients[]" type="checkbox" value="bacon"/>
-                <label for="bacon">Bacon</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="beef" name="ingredients[]" type="checkbox" value="beef"/>
-                <label for="beef">Beef</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+    <form th:action="@{/create}" th:method="post" enctype="multipart/form-data">
+        <div class="row">
+        <div class="input-field col s9">
+            <label for="title">Title</label>
+            <input th:value="${recipes.title}" name="title" id="title" type="text"/>
+            <p th:if="${#values.hasErrors('title')}" th:errors="${recipes.title}"/>
+        </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <label for="prep_time">Prep Time (in minutes)</label>
+                <input th:value="${recipes.prep_time}" name="prep_time" id="prep_time" type="number"/>
+                <p th:if="${#values.hasErrors('prep_time')}" th:errors="*{recipes.prep_time}"/>
+            </div>
+            <div class="input-field col s3">
+                <label for="cook_time">Cook Time (in minutes)</label>
+                <input th:value="${recipes.cook_time}" name="cook_time" id="cook_time" type="number"/>
+                <p th:if="${#valuess.hasErrors('cook_time')}" th:errors="${recipes.cook_time}"/>
+            </div>
+            <div class="input-field col s3">
+                <select th:value="${recipes.season}" name="season" id="season">
+                    <option value="" class="disabled">Choose a Season</option>
+                    <option value="2">Fall/Winter</option>
+                    <option value="1">Spring/Summer</option>
+                </select>
+                <p th:if="${#values.hasErrors('season')}" th:errors="${recipes.season}"/>
             </div>
         </div>
 
-        <div class="flipbox">
-            <div class="front  bg_produce"><h3 id="front-produce">Produce</h3></div>
-            <div class="back" id="produce">
-                <input id="mushrooms" name="ingredients[]" type="checkbox" value="mushrooms"/>
-                <label for="mushrooms">Mushrooms</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+        <div class="row">
+            <div class="input-field col s5">
+                <label for="instruction">Instructions</label>
+                <textarea th:value="${recipes.instruction}" name="instruction" id="instruction" class="browser-default"></textarea>
+                <p th:if="${#values.hasErrors('instruction')}" th:errors="${recipes.instruction}"/>
+            </div>
 
-                <input id="onions" name="ingredients[]" type="checkbox" value="onions"/>
-                <label for="onions">Onions</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="cherry_Peppers" name="ingredients[]" type="checkbox" value="cherry_Peppers"/>
-                <label for="cherry_Peppers">Cherry_Peppers</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="olives" name="ingredients[]" type="checkbox" value="olives"/>
-                <label for="olives">Olives</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="green_peppers" name="ingredients[]" type="checkbox" value="green_peppers"/>
-                <label for="green_peppers">Green Peppers</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="jalapeno" name="ingredients[]" type="checkbox" value="jalapeno"/>
-                <label for="jalapeno">Jalapeno</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+            <div class="file-field input-field col s4">
+                <div class="btn"><span>UPLOAD</span></div>
+                <input  th:value="${recipes.image}" name="image" id="image_file" type="file"/>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" />
+                </div>
             </div>
         </div>
 
-        <div class="flipbox">
-            <div class="front  bg_spices"><h3 id="front-spices">Spices</h3></div>
-            <div class="back" id="spices">
-                <input id="ground_cumin" name="ingredients[]" type="checkbox" value="ground_cumin"/>
-                <label for="ground_cumin">Ground Cumin</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="basil" name="ingredients[]" type="checkbox" value="basil"/>
-                <label for="basil">Basil</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="black_paper" name="ingredients[]" type="checkbox" value="black_paper"/>
-                <label for="black_paper">Black Pepper</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="salt" name="ingredients[]" type="checkbox" value="salt"/>
-                <label for="salt">Salt</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="paprika" name="ingredients[]" type="checkbox" value="paprika"/>
-                <label for="paprika">Paprika</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="thyme" name="ingredients[]" type="checkbox" value="thyme"/>
-                <label for="thyme">Thyme</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+        <h4>Select Ingredients</h4>
+        <div class="row">
+            <div class="input-field col s3">
+                <select th:value="${ingredients.categories_id}" name="categories_id" id="categories_id">
+                    <option value="" class="disabled">Choose a Category</option>
+                    <option value="1">Produce</option>
+                    <option value="2">Meats</option>
+                    <option value="3">Seasonings</option>
+                    <option value="4">Dry Goods</option>
+                    <option value="5">Dairy</option>
+                    <option value="6">Frozens</option>
+                    <option value="7">Condiments</option>
+                </select>
+            </div>
+            <div class="input-field col s3">
+                <select id="ingredient">
+                    <option value="" class="disabled">Please Choose Category</option>
+                </select>
+            </div>
+            <div class="input-field col s3">
+                <label for="qty">Quantity</label>
+                <input th:value="${ingredients_list.qty}" name="qty" id="qty" type="text"/>
             </div>
         </div>
 
-        <div class="flipbox">
-            <div class="front  bg_dairy"><h3 id="front-dairy">Dairy</h3></div>
-            <div class="back" id="dairy">
-                <input id="cheeses" name="ingredients[]" type="checkbox" value="cheeses"/>
-                <label for="cheeses">Cheeses</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+        <h4>Add An Ingredient</h4>
 
-                <input id="milk" name="ingredients[]" type="checkbox" value="milk"/>
-                <label for="milk">Milk</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="butter" name="ingredients[]" type="checkbox" value="butter"/>
-                <label for="butter">Butter</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="yogurt" name="ingredients[]" type="checkbox" value="yogurt"/>
-                <label for="yogurt">Yogurt</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="cream_cheese" name="ingredients[]" type="checkbox" value="cream_cheese"/>
-                <label for="cream_cheese">Cream Cheese</label>
-                <input name="qnty[]" type="text" value="" /><br/>
-
-                <input id="eggs" name="ingredients[]" type="checkbox" value="eggs"/>
-                <label for="eggs">eggs</label>
-                <input name="qnty[]" type="text" value="" /><br/>
+        <div class="row">
+            <div class="input-field col s3">
+                <label for="new_ingredient">Ingredient</label>
+                <input type="text" name="new_ingredient" id="new_ingredient"/>
+            </div>
+            <div class="input-field col s3">
+                <select name="selectedCategory" id="categories">
+                    <option value="" class="disabled">Choose a Category</option>
+                    <option value="1">Produce</option>
+                    <option value="2">Meats</option>
+                    <option value="3">Seasonings</option>
+                    <option value="4">Dry Goods</option>
+                    <option value="5">Dairy</option>
+                    <option value="6">Frozens</option>
+                    <option value="7">Condiments</option>
+                </select>
+            </div>
+            <div class="input-field col s3">
+                <label for="quantity">Quantity</label>
+                <input type="text" name="quantity" id="quantity"/><br/>
             </div>
         </div>
-    </div>
-    <br />
-    <hr />
-    <h2>New ingredients</h2>
 
-    <label for="new_ingredient">Ingredient</label>
-    <input type="text" name = "new_ingredient" id="new_ingredient"/>
-
-    <label for="categories">Category</label>
-    <select name="selectedCategory" id="categories">
-        <option value="meat">Meat</option>
-        <option value="produce">Produce</option>
-        <option value="spices">Spices</option>
-        <option value="dairy">Dairy</option>
-        <option value="frozen">Frozen</option>
-        <option value="misc">Misc</option>
-        <option value="other">Other</option>
-    </select>
-
-    <label for="quantity">Quantity</label>
-    <input type="text" name="quantity" id="quantity"/><br />
-
-    <input type="submit" value="Create"/>
-    <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
-</form>
+        <input class="btn waves-effect waves-light" type="submit" value="CREATE"/>
+        <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer">...</div>
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 </body>
 </html>
