@@ -56,6 +56,12 @@ video#bgvid {
     width: 20%;
 }
 
+/*Registration Form*/
+.container {
+    width: 50%;
+    text-align: center;
+}
+
 /*Begin dashboard view here*/
 #image-block {
     width: 70%;
