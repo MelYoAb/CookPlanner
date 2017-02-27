@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head(title=${'Home'})">
+    ...
+</head>
+<body>
+    <ul th:replace="fragments/navbar :: navbar">...</ul>
+    <div id="image-block">
+        <div id="masonry">
+            <img src="../../recipe_img/barbecue-quesadillas.jpg" class="masonry"/>
+            <img src="../../recipe_img/chicken-enchiladas.jpg" class="masonry"/>
+            <img src="../../recipe_img/grilled-fish.jpg" class="masonry"/>
+            <img src="../../recipe_img/beef-stew.jpg" class="masonry"/>
+            <img src="../../recipe_img/apple-cinnamon-pork-chops.jpg" class="masonry"/>
+            <img src="../../recipe_img/ham-beans.jpg" class="masonry"/>
+            <img src="../../recipe_img/tuscan-pasta.jpg" class="masonry"/>
+        </div>
+    </div>
+<div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>

@@ -5,12 +5,35 @@
 </head>
 <body>
 <div class="overlay">
-    <img src="../img/Logo_Circle.svg" class="logo" />
+    <img src="../img/Logo_Circle.svg" class="logo"/>
     <!--<h1>Full Plate</h1>-->
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" poster="../img/static-food.jpg" id="bgvid">
-    <!--<source src="" type="video/webm">-->
-        <source src="../img/food.mp4" type="video/mp4" />
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" poster="../img/static-food.jpg"
+           id="bgvid">
+        <!--<source src="" type="video/webm">-->
+        <source src="../img/food.mp4" type="video/mp4"/>
     </video>
+    <div class="skinny">
+        <div th:if="${param.error}">
+            Invalid Username and Password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <a href="#" id="sign-in" class="btn waves-effect waves-teal scale-transition">SIGN IN</a>
+        <a href="#" id="sign-up" class="btn waves-effect waves-teal scale-transition">SIGN UP</a>
+        <form class="login scale-transition scale-out" th:action="@{/login}" method="post">
+            <div class="input-field">
+                <label class="login scale-transition scale-out" for="username">Username</label>
+                <input class="login scale-transition scale-out" id="username" name="username" type="text"/>
+            </div>
+            <div class="input-field">
+                <label class="login scale-transition scale-out" for="password">Password</label>
+                <input class="login scale-transition scale-out" id="password" name="password" type="password"/>
+            </div>
+            <input class="login btn waves-effect waves-light scale-transition scale-out" type="submit" value="LOG IN"/>
+        </form>
+    </div>
 </div>
+<div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>

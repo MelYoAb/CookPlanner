@@ -37,12 +37,54 @@ video#bgvid {
 }
 
 .overlay > img {
-    z-index:1;
+    z-index: 1;
     position: absolute;
-    top: 40%;
+    top: 30%;
     bottom: 50%;
     left: 40%;
     right: 50%;
 }
+.overlay > .skinny {
+    z-index: 1;
+    position: absolute;
+    top: 60%;
+    bottom: 30%;
+    left: 40%;
+    right: 50%;
+}
+.skinny {
+    width: 20%;
+}
 
-/*Begin next view here*/
+/*Registration Form*/
+.container {
+    width: 50%;
+    text-align: center;
+}
+
+/*Begin dashboard view here*/
+#image-block {
+    width: 70%;
+}
+#masonry {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 700px;
+    max-width: 75%;
+}
+
+#masonry img {
+    width: 33.3%;
+    max-width: 100%;
+    transition: .8s opacity;
+}
+
+#masonry:hover img {
+    opacity: 0.3;
+}
+
+#masonry:hover img:hover {
+    opacity: 1;
+}
+
