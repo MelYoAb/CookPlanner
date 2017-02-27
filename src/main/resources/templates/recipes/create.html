@@ -45,13 +45,14 @@
 
             <div class="file-field input-field col s4">
                 <div class="btn"><span>UPLOAD</span></div>
-                <input  th:value="${recipes.image}" name="image" id="image_file" type="file"/>
+                <input type="hidden">
+                <input th:value="${recipes.image}" type="filepicker" data-fp-apikey="ASRy7EtmQ2WEbPx5YegpQz" onchange="dfg(event.fpfile.url)" name="image" id="image_file"/>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" />
                 </div>
             </div>
         </div>
-
+        
         <h4>Select Ingredients</h4>
         <div class="row">
             <div class="input-field col s3">
