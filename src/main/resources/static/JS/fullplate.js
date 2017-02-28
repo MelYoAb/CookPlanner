@@ -13,4 +13,18 @@ $(document).ready(function(){
 
     //required by materialize for dropdown menu on create recipe form
     $('select').material_select();
+
+    //navbar options
+    $('.button-collapse').sideNav({
+            menuWidth: 200,
+            edge: 'left',
+            closeOnClick: false,
+            draggable: true
+        }
+    );
+
+    // $(".masonry > img").click(function(){
+    //     $(".single-recipe").animate({"right": "+=500px"}, "slow");
+    // });
+
 });
