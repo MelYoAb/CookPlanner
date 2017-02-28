@@ -51,6 +51,12 @@ public class RecipeController {
     @Value("${uploads}")
     private String uploadPath;
 
+    @GetMapping("/all")
+    public String viewAllRecipe(Model model) {
+        model.addAttribute("recipes", recipesDao.findAll());
+        return "/recipes/recipes";
+    }
+
     @GetMapping("/create")
     public String viewCreateRecipeForm(Model model) {
         model.addAttribute(new Recipe());
