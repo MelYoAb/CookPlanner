@@ -6,12 +6,23 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+
 /**
- * Created by apple on 2/22/17.
+ * @author Created by Yassine on 2/22/17.
  */
 @Repository
 public interface IngredientsList extends CrudRepository<IngredientList, Long> {
 
     @Query("select i from Ingredient i where i.ingredient=?1")
-    public Ingredient findByIngredient (String ingredient);
+    Ingredient findByIngredient (String ingredient);
+
+
+    @Query( "SELECT i, COUNT(i) FROM IngredientList il, UserRecipe ur\n" +
+            "JOIN il.ingredient i\n" +
+            "JOIN il.recipe r\n" +
+            "WHERE (ur.user.id=?1 AND ur.recipe.id = il.recipe.id\n)" +
+            "GROUP BY i" )
+    List<Ingredient> findIndredientsPerLoggedinUser(long id);
 }
