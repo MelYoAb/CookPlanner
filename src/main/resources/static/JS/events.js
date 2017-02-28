@@ -126,8 +126,8 @@ function listUpcomingEvents() {
             defaultDate: '2017-02-12',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
-
-            weekNumbers: true,
+            fixedWeekCount: false,
+            weekNumbers: false,
 
 
             selectable: true,
