@@ -34,6 +34,14 @@ public class Recipe {
     @Column(name = "image")
     private String image;
 
+    public List<IngredientList> getIngredientLists() {
+        return ingredientLists;
+    }
+
+    public void setIngredientLists(List<IngredientList> ingredientLists) {
+        this.ingredientLists = ingredientLists;
+    }
+
     @OneToMany(mappedBy = "recipe")
     List<IngredientList> ingredientLists;
 
