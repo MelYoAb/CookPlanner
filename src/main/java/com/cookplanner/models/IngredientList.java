@@ -1,5 +1,7 @@
 package com.cookplanner.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -31,6 +33,7 @@ public class IngredientList implements Serializable {
 
 
     @ManyToOne
+    @JsonManagedReference
     private Recipe recipe;
 
     public IngredientList() {

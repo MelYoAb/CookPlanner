@@ -1,5 +1,7 @@
 package com.cookplanner.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class Recipe {
     }
 
     @OneToMany(mappedBy = "recipe")
+    @JsonBackReference
     List<IngredientList> ingredientLists;
 
     public Recipe() {

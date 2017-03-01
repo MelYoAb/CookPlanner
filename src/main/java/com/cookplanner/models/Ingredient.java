@@ -1,5 +1,7 @@
 package com.cookplanner.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class Ingredient {
 
     @ManyToOne
     @JoinColumn(name = "categories_id")
+    @JsonBackReference
     private Category category;
 
     @OneToMany(mappedBy = "ingredient")
