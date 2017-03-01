@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head(title=${'Recipe Box'})">
+    ...
+</head>
+<body>
+<h1>Recipes</h1>
+<div th:replace="fragments/footer :: footer">...</div>
+
+<div th:each="recipe : ${recipes}">
+<img th:src="${'/recipe_img/' + recipe.image}" />
+<h3 th:text="${recipe.title}"></h3>
+</div>
+</body>
+</html>

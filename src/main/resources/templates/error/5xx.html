@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head(title=${'Uh-Oh'})">
+    ...
+</head>
+<body>
+<div class="container">
+    <th:block th:switch="${error}">
+        <div th:case="'Internal Server Error'">
+            <h1>Server Error</h1>
+        </div>
+    </th:block>
+    <p>Looks like our server is out to lunch. Please try again soon.</p>
+    <img src="../../img/500-sad-food.jpg" height="350" width="596"/>
+</div>
+</body>
+</html>

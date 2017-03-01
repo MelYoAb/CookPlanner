@@ -1,4 +1,4 @@
-/*welcome page*/
+/* Welcome page */
 video#bgvid {
     position: fixed;
     top: 50%;
@@ -37,12 +37,89 @@ video#bgvid {
 }
 
 .overlay > img {
-    z-index:1;
+    z-index: 1;
     position: absolute;
-    top: 40%;
+    top: 30%;
     bottom: 50%;
     left: 40%;
     right: 50%;
 }
+.overlay > .skinny {
+    z-index: 1;
+    position: absolute;
+    top: 60%;
+    bottom: 30%;
+    left: 40%;
+    right: 50%;
+}
+.skinny {
+    width: 20%;
+}
 
-/*Begin next view here*/
+/* Registration Form */
+/*.container {*/
+    /*width: 50%;*/
+    /*text-align: center;*/
+/*}*/
+
+.reg-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    background: url("../img/cutting-board.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.reg-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+}
+
+/* Navbar */
+.side-nav {
+    width: 200px;
+}
+
+/* Dashboard */
+#image-block {
+    width: 70%;
+}
+#masonry {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 700px;
+    max-width: 65%;
+    margin-left: 200px;
+}
+
+#masonry img {
+    width: 33.3%;
+    max-width: 100%;
+    transition: .8s opacity;
+}
+
+#masonry:hover img {
+    opacity: 0.3;
+}
+
+#masonry:hover img:hover {
+    opacity: 1;
+}
+
+/* Calendar */
+#calendar {
+    max-width: 900px;
+    margin-left: 250px;
+    margin-right: 200px;
+}

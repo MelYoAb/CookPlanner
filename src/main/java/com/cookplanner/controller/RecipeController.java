@@ -1,8 +1,11 @@
 package com.cookplanner.controller;
 
+import com.cookplanner.models.Category;
 import com.cookplanner.models.Ingredient;
 import com.cookplanner.models.IngredientList;
 import com.cookplanner.models.Recipe;
+import com.cookplanner.repositories.Categories;
+import com.cookplanner.repositories.Ingredients;
 import com.cookplanner.repositories.IngredientsList;
 import com.cookplanner.repositories.Recipes;
 import com.cookplanner.services.UserSvc;
@@ -20,6 +23,8 @@ import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Created by Yassine on 2/20/17.
@@ -33,24 +38,42 @@ public class RecipeController {
 
     @Autowired
     UserSvc userSvc;
+
     @Autowired
-    IngredientsList ingredientsList;
+    IngredientsList ingredientsListSrv;
+
+    @Autowired
+    Ingredients ingredientsDAO;
+
+    @Autowired
+    Categories categoriesDAO;
 
     @Value("${uploads}")
-    private  String uploadPath;
+    private String uploadPath;
+
+    @GetMapping("/all")
+    public String viewAllRecipe(Model model) {
+        model.addAttribute("recipes", recipesDao.findAll());
+        return "/recipes/recipes";
+    }
 
     @GetMapping("/create")
-    public String viewCreateRecipeForm ( Model model) {
+    public String viewCreateRecipeForm(Model model) {
         model.addAttribute(new Recipe());
         return "/recipes/create";
     }
 
     @PostMapping("/create")
-    public String createRecipe (@Valid Recipe recipe, Errors validation, Model model,
-                                @RequestParam(name = "image_file") MultipartFile uploadedFile,
-                                @RequestParam(value = "ingredients[]") String[] ingredients) {
+    public String createRecipe(@Valid Recipe recipe, Errors validation, Model model,
+                               @RequestParam(name = "image_file") MultipartFile uploadedFile,
+                               @RequestParam(value = "ingredients[]") String[] ingredients,
+                               @RequestParam(value = "qnty[]") List<String> qnty,
+                               @RequestParam(value = "selectedCategory") String selectedCategory,
+                               @RequestParam(name = "new_ingredient") String new_ingredient,
+                               @RequestParam(name = "quantity") String quantity) {
 
-        if(validation.hasErrors()){
+
+        if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("recipe", recipe);
             return "recipes/create";
@@ -74,20 +97,41 @@ public class RecipeController {
         recipe.setImage(filename);
         Recipe savedRecipe = recipesDao.save(recipe);
 
-        for (String ingr: ingredients
-             ) {
-            System.out.println(ingr);
+        int counter = 0;
+
+        List<String> newArray = new ArrayList<>();
+        for (String q : qnty) {
+            if (!(q.equals(""))) {
+                newArray.add(q);
+            }
         }
 
+        for (String ingr : ingredients) {
+            IngredientList ingredientList = new IngredientList();
+            ingredientList.setRecipe(savedRecipe);
+            Ingredient savedIngredient = ingredientsListSrv.findByIngredient(ingr);
+            ingredientList.setIngredient(savedIngredient);
+            ingredientList.setQty(newArray.get(counter));
+            counter++;
+            ingredientsListSrv.save(ingredientList);
+        }
 
-//        IngredientList ingredientList = new IngredientList();
-//        Ingredient ingredient = new Ingredient();
-//        ingredientList.setIngredient(ingredient);
-//        ingredientList.setQty(1.5);
-//        ingredientList.setRecipe(savedRecipe);
-//        ingredientsList.save();
-//
+        if (!(quantity.isEmpty() || selectedCategory.isEmpty() || new_ingredient.isEmpty())) {
+            Category newCategory = new Category();
+            newCategory.setName(selectedCategory);
+            Category savedCategory = categoriesDAO.save(newCategory);
 
+            Ingredient newIngredient = new Ingredient();
+            newIngredient.setIngredient(new_ingredient);
+            newIngredient.setCategory(savedCategory);
+            Ingredient savedIngredient = ingredientsDAO.save(newIngredient);
+
+            IngredientList newIngredientList = new IngredientList();
+            newIngredientList.setRecipe(savedRecipe);
+            newIngredientList.setIngredient(savedIngredient);
+            newIngredientList.setQty(quantity);
+            ingredientsListSrv.save(newIngredientList);
+        }
 
         return "redirect:/create";
     }
