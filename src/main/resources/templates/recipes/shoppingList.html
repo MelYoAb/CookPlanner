@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Shopping List</title>
 </head>
-<body>
-<div  th:each="ingredient : ${ingredientList}">
+<body class="list-bg">
+<div class="list z-depth-5" th:each="ingredient : ${ingredientList}">
     <h4 th:text="${ingredient.ingredient}"></h4>
 </div>
 </body>
