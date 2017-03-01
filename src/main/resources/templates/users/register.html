@@ -1,60 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="fragments/header :: head(title=${'Register'})">
     ...
 </head>
-<body>
-<div class="container">
-    <h1>Register</h1>
-    <h4>It's Free! </h4>
-    <form th:action="@{/register}" th:method="post" th:object="${user}">
-        <div class="row">
-            <div class="input-field col s4">
-                <label for="first_name">First Name</label>
-                <input th:field="*{first_name}" id="first_name" type="text"/>
-                <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"/>
-            </div>
-            <div class="input-field col s4">
-                <label for="last_name">Last Name</label>
-                <input th:field="*{last_name}" id="last_name" type="text"/>
-                <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"/>
-            </div>
-        </div> <!--end row -->
+<body class="background">
+<div class="container register z-depth-5">
+    <div class="reg-left grey darken-1">
+        <h1>Register</h1>
+        <h4>It's Free! </h4>
+        <p>Get full access to all of our menu planning features and take one more item off of your to-do list:
+        The dreaded question of "What's for dinner?"!</p>
+    </div>
+    <div class="reg-right">
+        <form th:action="@{/register}" th:method="post" th:object="${user}">
+            <div class="row">
+                <div class="input-field col s5">
+                    <label for="first_name">First Name</label>
+                    <input th:field="*{first_name}" id="first_name" type="text"/>
+                    <p th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"/>
+                </div>
+                <div class="input-field col s5">
+                    <label for="last_name">Last Name</label>
+                    <input th:field="*{last_name}" id="last_name" type="text"/>
+                    <p th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"/>
+                </div>
+            </div> <!--end row -->
 
-        <div class="row">
-            <div class="input-field col s4">
-                <label for="email">Email</label>
-                <input th:field="*{email}" id="email" type="email"/>
-                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
-            </div>
-            <div class="input-field col s4">
-                <label for="phone_number">Phone Number</label>
-                <input th:field="*{phone_number}" id="phone_number" type="tel"/>
-                <p th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"/>
-            </div>
-        </div> <!-- end row -->
+            <div class="row">
+                <div class="input-field col s5">
+                    <label for="username">Username</label>
+                    <input th:field="*{username}" id="username" type="text"/>
+                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
+                </div>
+                <div class="input-field col s5">
+                    <label for="email">Email</label>
+                    <input th:field="*{email}" id="email" type="email"/>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                </div>
+            </div> <!-- end row -->
 
-        <div class="row">
-            <div class="input-field col s4">
-                <label for="username">Username</label>
-                <input th:field="*{username}" id="username" type="text"/>
-                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
-            </div>
-            <div class="input-field col s4">
-                <label for="password">Password</label>
-                <input th:field="*{password}" id="password" type="password"/>
-                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
-            </div>
-        </div> <!-- end row -->
-        <div class="row">
-            <div class="input-field col s4">
-                <label for="password_confirm">Confirm Your Password</label>
-                <input type="password" id="password_confirm" name="password_confirm" />
-            </div>
-        </div>
-        <input class="btn waves-effect waves-light" type="submit" value="Register"/>
-        <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
-    </form>
+            <div class="row">
+                <div class="input-field col s5">
+                    <label for="password">Password</label>
+                    <input th:field="*{password}" id="password" type="password"/>
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+                </div>
+                <div class="input-field col s5">
+                    <label for="password_confirm">Confirm Your Password</label>
+                    <input type="password" id="password_confirm" name="password_confirm"/>
+                </div>
+            </div> <!-- end row -->
+                <input class="btn waves-effect waves-light" type="submit" value="REGISTER"/>
+                <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
+        </form>
+    </div>
 </div>
 <div th:replace="fragments/footer :: footer">...</div>
 </body>

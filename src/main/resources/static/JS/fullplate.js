@@ -9,10 +9,26 @@ $(document).ready(function(){
         $('#sign-in').addClass('scale-out');
         $('#sign-up').addClass('scale-out');
         $('.login').removeClass('scale-out').addClass('scale-in');
-    })
+    });
 
     //required by materialize for dropdown menu on create recipe form
     $('select').material_select();
+
+    //when btn is clicked, adds more ingredient fields
+    var counter = 1;
+    var limit = 10;
+    $('#add-input').click(function() {
+        if (counter == limit)  {
+            alert("You have reached the limit of adding " + counter + " inputs");
+        } else {
+            $('select').material_select('destroy');
+            $('.dynamic-input').append('<div class="input-field col s3"><select id="ingredient' + counter + '"><option ' +
+                'value="" class="disabled">Please Choose Category</option></select></div><div class="input-field col s3">' +
+                '<label for="qty">Quantity</label><input name="qty" id="qty' + counter + '" type="text"/></div>');
+            $('select').material_select();
+            counter ++;
+        }
+    });
 
     //navbar options
     $('.button-collapse').sideNav({

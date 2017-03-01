@@ -7,66 +7,65 @@
 <div class="container">
     <h3>Add a Recipe</h3>
 
-    <form th:action="@{/create}" th:method="post" th:object="${recipe}" enctype="multipart/form-data">
+    <form th:action="@{/create}" th:method="post" enctype="multipart/form-data">
         <div class="row">
-            <div class="input-field col s9">
-                <label for="title">Title</label>
-                <input th:value="*{title}" name="title" id="title" type="text"/>
-                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
-            </div>
+        <div class="input-field col s9">
+            <label for="title">Title</label>
+            <input  name="title" id="title" type="text"/>
+            <!--<p th:if="${#values.hasErrors('title')}" th:errors="${recipes.title}"/>-->
+        </div>
         </div>
         <div class="row">
             <div class="input-field col s3">
                 <label for="prep_time">Prep Time (in minutes)</label>
-                <input th:value="*{prep_time}" name="prep_time" id="prep_time" type="number"/>
-                <p th:if="${#fields.hasErrors('prep_time')}" th:errors="*{prep_time}"/>
+                <input  name="prep_time" id="prep_time" type="number"/>
+                <!--<p th:if="${#values.hasErrors('prep_time')}" th:errors="*{recipes.prep_time}"/>-->
             </div>
             <div class="input-field col s3">
                 <label for="cook_time">Cook Time (in minutes)</label>
-                <input th:value="*{cook_time}" name="cook_time" id="cook_time" type="number"/>
-                <p th:if="${#fields.hasErrors('cook_time')}" th:errors="*{cook_time}"/>
+                <input  name="cook_time" id="cook_time" type="number"/>
+                <!--<p th:if="${#valuess.hasErrors('cook_time')}" th:errors="${recipes.cook_time}"/>-->
             </div>
             <div class="input-field col s3">
-                <label for="season">Choose a Season</label>
-                <select th:value="*{season}" name="season" id="season">
+                <select name="season" id="season">
                     <option value="" class="disabled">Choose a Season</option>
-                    <option value="winter_fall">Fall/Winter</option>
-                    <option value="spring_summer">Spring/Summer</option>
+                    <option value="2">Fall/Winter</option>
+                    <option value="1">Spring/Summer</option>
                 </select>
-                <p th:if="${#fields.hasErrors('season')}" th:errors="*{season}"/>
+                <!--<p th:if="${#values.hasErrors('season')}" th:errors="${recipes.season}"/>-->
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s5">
                 <label for="instruction">Instructions</label>
-                <textarea th:value="*{instruction}" name="instruction" id="instruction"
-                          class="browser-default"></textarea>
-                <p th:if="${#fields.hasErrors('instruction')}" th:errors="*{instruction}"/>
+                <textarea  name="instruction" id="instruction" class="browser-default"></textarea>
+                <!--<p th:if="${#values.hasErrors('instruction')}" th:errors="${recipes.instruction}"/>-->
             </div>
 
             <div class="file-field input-field col s4">
-                <div class="btn"><span>UPLOAD</span></div>
-                <input id="image_file" name="image_file" type="file"/>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text"/>
-                </div>
+                <input type="hidden" />
+                <input  type="filepicker" data-fp-apikey="ASRy7EtmQ2WEbPx5YegpQz" onchange="dfg(event.fpfile.url)" name="image" id="image_file"/>
+                <!--<div class="file-path-wrapper">-->
+                    <!--<input class="file-path validate" type="text" />-->
+                <!--</div>-->
             </div>
         </div>
+
         <h4>Select Ingredients</h4>
-        <div class="row">
-            <div class="input-field col s3">
-                <select name="categories_id" id="categories_id">
-                    <option value="" class="disabled">Choose a Category</option>
-                    <option value="produce">Produce</option>
-                    <option value="meats">Meats</option>
-                    <option value="seasonings">Seasonings</option>
-                    <option value="dry-goods">Dry Goods</option>
-                    <option value="dairy">Dairy</option>
-                    <option value="frozens">Frozens</option>
-                    <option value="condiments">Condiments</option>
-                </select>
-            </div>
+        <div class="row dynamic-input">
+            <!--<div class="input-field col s3">-->
+                <!--<select th:value="${ingredients.categories_id}" name="categories_id" id="categories_id">-->
+                    <!--<option value="" class="disabled">Choose a Category</option>-->
+                    <!--<option value="1">Produce</option>-->
+                    <!--<option value="2">Meats</option>-->
+                    <!--<option value="3">Seasonings</option>-->
+                    <!--<option value="4">Dry Goods</option>-->
+                    <!--<option value="5">Dairy</option>-->
+                    <!--<option value="6">Frozens</option>-->
+                    <!--<option value="7">Condiments</option>-->
+                <!--</select>-->
+            <!--</div>-->
             <div class="input-field col s3">
                 <select id="ingredient">
                     <option value="" class="disabled">Please Choose Category</option>
@@ -76,6 +75,9 @@
                 <label for="qty">Quantity</label>
                 <input name="qty" id="qty" type="text"/>
             </div>
+        </div>
+        <div class="input-field col s3">
+            <input class="btn waves-effect waves-light" type="button" value="ADD ANOTHER INGERDIENT" id="add-input" />
         </div>
 
         <h4>Add An Ingredient</h4>
@@ -104,7 +106,7 @@
         </div>
 
         <input class="btn waves-effect waves-light" type="submit" value="CREATE"/>
-        <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
+        <!--<input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>-->
     </form>
 </div>
 <div th:replace="fragments/footer :: footer">...</div>
