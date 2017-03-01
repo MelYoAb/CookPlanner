@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/view/1}" th:method="post">
+    <input type="submit" value="Recipe of the week"/>
+</form>
+<form th:action="@{/view/2}" th:method="post">
+    <input type="submit" value="Recipe of the month"/>
+</form>
+<div  th:each="userRecipe  : ${recipes}">
+<h2 th:text="${userRecipe.recipe.title}"></h2>
+<h3 th:text="${userRecipe.recipe.instruction}"></h3>
+<h3 th:text="${userRecipe.recipe.season}"></h3>
+<h3 th:text="${userRecipe.recipe.cook_time}"></h3>
+<h3 th:text="${userRecipe.recipe.prep_time}"></h3>
+<img th:src="${'/recipe_img/'+ userRecipe.recipe.image}"/>
+
+</div>
+</body>
+</html>

@@ -11,26 +11,26 @@ import java.util.Date;
  */
 
 @Entity
-@IdClass(UserRecipeId.class)
 @Table(name = "users_recipes")
 public class UserRecipe implements Serializable {
 
+    @EmbeddedId
+    private UserRecipeId id;
+
     @Column(name = "date")
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm")
+    @JsonFormat(pattern="yyyy-MM-dd 19:00")
     private Date date;
 
     @Column(name = "cost")
     private double cost;
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "recipes_id")
+    @JoinColumn(name = "recipes_id", insertable = false, updatable = false)
     private Recipe recipe;
 
     public UserRecipe() {
@@ -66,5 +66,13 @@ public class UserRecipe implements Serializable {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UserRecipeId getId() {
+        return id;
+    }
+
+    public void setId(UserRecipeId id) {
+        this.id = id;
     }
 }
