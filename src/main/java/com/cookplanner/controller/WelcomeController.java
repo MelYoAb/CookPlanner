@@ -1,6 +1,10 @@
 package com.cookplanner.controller;
 
+import com.cookplanner.models.User;
+import com.cookplanner.services.UserSvc;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -9,13 +13,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WelcomeController {
 
+    @Autowired
+    UserSvc userSvc;
+
     @GetMapping("/welcome")
     public String homepage() {
         return "welcome";
     }
 
     @GetMapping("/users/dashboard")
-    public String showCollage() {
+    public String showCollage(Model model) {
+        User loggedInUser = userSvc.loggedInUser();
+        model.addAttribute("loggedInUser", loggedInUser);
         return"users/dashboard";
     }
 }
