@@ -108,6 +108,11 @@ video#bgvid {
     width: 200px;
 }
 
+.navbar-avatar {
+    width: auto;
+    height: 100px;
+}
+
 /* Dashboard */
 #image-block {
     width: 70%;
@@ -136,8 +141,47 @@ video#bgvid {
 }
 
 /* Calendar */
+.cal-bg {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 14px;
+}
+
 #calendar {
     max-width: 900px;
     margin-left: 250px;
     margin-right: 200px;
+}
+
+.fc-view-container {
+    border: 1px solid darkgrey;
+    background-color: #fff;
+    z-index: 5;
+}
+
+.fc table {
+    table-layout: fixed;
+}
+
+.fc-unthemed td, .fc-unthemed .fc-divider {
+    border-left: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+}
+
+/*.fc-widget-content, .fc-widget-header {*/
+    /*padding: 0;*/
+/*}*/
+
+/*Shopping List*/
+.list-bg {
+    background: url("../img/food-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.list {
+    background-color: #fff;
+    width: 400px;
+    height: 650px;
 }
