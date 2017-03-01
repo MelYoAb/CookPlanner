@@ -7,6 +7,10 @@
 <body class="list-bg">
 <div class="list z-depth-5" th:each="ingredient : ${ingredientList}">
     <h4 th:text="${ingredient.ingredient}"></h4>
+    <form th:action="${'/ingredient/delete'}" th:method="post" style="display:inline-block">
+        <input type="hidden" name="id" th:value="${ingredient.id}" />
+        <button class="btn btn-danger">Delete</button>
+    </form>
 </div>
 </body>
 </html>

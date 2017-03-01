@@ -3,6 +3,7 @@ package com.cookplanner.controller;
 import com.cookplanner.models.User;
 import com.cookplanner.models.UserRecipe;
 import com.cookplanner.repositories.UserRecipes;
+import com.cookplanner.services.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class CalendarController {
     @Autowired
     UserRecipes calendarsDao;
 
+    @Autowired
+    UserSvc userSvc;
+
     @GetMapping("/calendar.json")
     public @ResponseBody
     List<UserRecipe> retrieveAllData(){
@@ -33,6 +37,8 @@ public class CalendarController {
     @GetMapping("/")
     public String showCalendar(Model model){
         model.addAttribute("calendars", Collections.emptyList());
+        User loggedInUser = userSvc.loggedInUser();
+        model.addAttribute("loggedInUser", loggedInUser);
         return "calendar/signGoogle";
     }
 

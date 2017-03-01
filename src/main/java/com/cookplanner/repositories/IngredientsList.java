@@ -19,10 +19,10 @@ public interface IngredientsList extends CrudRepository<IngredientList, Long> {
     Ingredient findByIngredient (String ingredient);
 
 
-    @Query( "SELECT i, COUNT(i) FROM IngredientList il, UserRecipe ur\n" +
+    @Query( "SELECT i, COUNT(i) as qty FROM IngredientList il, UserRecipe ur\n" +
             "JOIN il.ingredient i\n" +
             "JOIN il.recipe r\n" +
-            "WHERE (ur.user.id=?1 AND ur.recipe.id = il.recipe.id\n)" +
+            "WHERE (ur.user.id=?1 AND ur.recipe.id = il.recipe.id\n) AND ur.date <= NOW()" +
             "GROUP BY i" )
     List<Ingredient> findIndredientsPerLoggedinUser(long id);
 }

@@ -7,13 +7,13 @@
 <div th:fragment="navbar">
     <ul class="side-nav fixed">
         <li>
-            <div class="userView">
+            <div class="userView" th:object="${loggedInUser}">
                 <div class="background">
                     <img src="../../img/soapstone.jpg"/>
                 </div>
                 <a href="#"><img class="circle" src="../../img/profile-test.jpg"/></a>
-                <a href="#"><span class="white-text name">Busy Mom</span></a>
-                <a href="#"><span class="white-text email">someemail@email.com</span></a>
+                <a href="#"><span th:text="*{first_name}" class="white-text name"></span></a>
+                <a href="#"><span th:text="*{email}" class="white-text email"></span></a>
             </div>
         </li>
         <li>
