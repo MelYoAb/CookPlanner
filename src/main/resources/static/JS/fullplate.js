@@ -22,8 +22,8 @@ $(document).ready(function(){
             alert("You have reached the limit of adding " + counter + " inputs");
         } else {
             $('select').material_select('destroy');
-            $('.dynamic-input').append('<div class="input-field col s3"><select id="ingredient' + counter + '"><option ' +
-                'value="" class="disabled">Please Choose Category</option></select></div><div class="input-field col s3">' +
+            $('.dynamic-input').append('<div class="input-field col s3"><select><option class="allIngredients" ' +
+                'value="" class="disabled"></option></select></div><div class="input-field col s3">' +
                 '<label for="qty">Quantity</label><input name="qty" id="qty' + counter + '" type="text"/></div>');
             $('select').material_select();
             counter ++;
