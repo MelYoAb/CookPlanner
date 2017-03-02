@@ -3,12 +3,12 @@
 <head th:replace="fragments/header :: head(title=${'Something New'})">
     ...
 </head>
-<body>
+<body class="background">
 <div th:replace="fragments/navbar :: top-nav">...</div>
 <div class="container">
     <h3>Add a Recipe</h3>
 
-    <form th:action="@{/create}" th:method="post" enctype="multipart/form-data">
+    <form class="create-form z-depth-5" th:action="@{/create}" th:method="post" enctype="multipart/form-data">
         <div class="row">
         <div class="input-field col s9">
             <label for="title">Title</label>

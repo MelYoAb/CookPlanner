@@ -38,24 +38,26 @@ video#bgvid {
     background-color: rgba(99, 99, 99, 0.77);
 }
 
-.overlay > img {
+.skinny > img {
     z-index: 1;
-    position: absolute;
-    top: 30%;
-    bottom: 50%;
-    left: 40%;
-    right: 50%;
+    margin-bottom: 30px;
 }
 .overlay > .skinny {
     z-index: 1;
     position: absolute;
-    top: 60%;
-    bottom: 30%;
+    width: 20%;
+    top: 30%;
     left: 40%;
     right: 50%;
+    display: -webkit-box;
 }
-.skinny {
-    width: 20%;
+
+.login-form {
+    display: inline-block;
+}
+
+.sign-buttons {
+    display: inline-block;
 }
 
 /* Registration Form */
@@ -187,7 +189,7 @@ video#bgvid {
 
 /*Shopping List*/
 .list-bg {
-    background: url("../img/food-bg.jpg");
+    background: url("../img/mushrooms.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -200,10 +202,22 @@ video#bgvid {
 
 /*View All Recipes*/
 .flex {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: -webkit-flex;
-    -webkit-flex-direction: row;
-    -webkit-flex-wrap: wrap;
+    width: 100%
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*display: -webkit-flex;*/
+    /*-webkit-flex-direction: row;*/
+    /*-webkit-flex-wrap: wrap;*/
+}
+
+.card {
+    margin: 10px;
+}
+/*Create a Recipe*/
+.create-form {
+    background-color: #fff;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
 }
