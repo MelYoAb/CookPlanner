@@ -3,17 +3,8 @@
 <head th:replace="fragments/header :: head(title=${'Calendar'})">
     <link href='/library-calendar/fullcalendar.min.css' rel='stylesheet'/>
     <link href='/library-calendar/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
-    <style>
-        body {
-            margin: 40px 10px;
-            padding: 0;
-            font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-            font-size: 14px;
-        }
-
-    </style>
 </head>
-<body>
+<body class="background cal-bg">
 <div th:replace="fragments/navbar :: navbar">...</div>
 
 <div id='calendar'></div>
