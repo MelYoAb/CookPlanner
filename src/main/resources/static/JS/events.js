@@ -118,18 +118,17 @@ function listUpcomingEvents() {
 //display the calendar with the events
 
         $('#calendar').fullCalendar({
+            theme: true,
             header: {
-                left: 'prev,next today',
+                left: 'prev,next',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            defaultDate: '2017-02-12',
+            defaultDate: '2017-03-01',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             fixedWeekCount: false,
             weekNumbers: false,
-
-
             selectable: true,
             selectHelper: true,
             select: function(start, end) {
