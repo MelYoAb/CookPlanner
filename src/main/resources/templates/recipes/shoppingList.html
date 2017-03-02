@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Shopping List</title>
+<head th:replace="fragments/header :: head(title=${'Shopping List'})">
+    ...
 </head>
 <body class="list-bg">
-<div class="list z-depth-5" th:each="ingredient : ${ingredientList}">
-    <h4 th:text="${ingredient.ingredient}"></h4>
-    <form th:action="${'/ingredient/delete'}" th:method="post" style="display:inline-block">
-        <input type="hidden" name="id" th:value="${ingredient.id}" />
-        <button class="btn btn-danger">Delete</button>
-    </form>
+<div th:replace="fragments/navbar :: top-nav">...</div>
+<div  class="list z-depth-5">
+<div >
+    <p th:each="ingredient : ${ingredientList}" ><span th:text="${ingredient.ingredient}"></span></p>
+    <!--<form th:action="${'/ingredient/delete'}" th:method="post" style="display:inline-block">-->
+        <!--<input type="hidden" name="id" th:value="${ingredient.id}" />-->
+        <!--<button class="btn-flat">Delete</button>-->
+    <!--</form>-->
 </div>
+    </div>
+<div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>
