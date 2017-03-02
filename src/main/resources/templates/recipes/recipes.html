@@ -5,11 +5,11 @@
 </head>
 <body>
 <div th:replace="fragments/navbar :: top-nav">...</div>
-<div class="container">
+<div>
     <h1>Recipe Box</h1>
     <div class="row">
-        <div class="flex col s4">
-            <div class="card" th:each="recipe : ${recipes}">
+        <div class="flex col s12 m12 l12">
+            <div class="card col l3" th:each="recipe : ${recipes}">
                 <div class="card-image">
                     <img th:src="${'/recipe_img/' + recipe.image}"/>
                 </div>
