@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
 import java.util.List;
@@ -28,24 +26,22 @@ public class RecipesViewController {
     @Autowired
     UserRecipes userRecipesDao;
 
-    @GetMapping("/view")
-    public String view(){
-        return "users/dashboard";
-    }
 
-    @PostMapping("/view/{id}")
-    public String recipesOfWeek(@PathVariable long id,Model model){
+    @GetMapping("/view")
+    public String recipesOfWeek(Model model){
         User loggedInUser= userSvc.loggedInUser();
         Date today =new Date();
         DateTime dt= new DateTime(today);
-        Date endDate;
-        if (id==1){
-            endDate =dt.plusWeeks(1).toDate();
-        }else{
-            endDate =dt.plusMonths(1).toDate();
-        }
-        List<UserRecipe> RecipesOfWeek = recipesDao.listOfRecipes(loggedInUser.getId(),today,endDate);
+//        Date endDate;
+//        System.out.println(id+"capstone");
+//        if (id==1){
+//            endDate =dt.plusWeeks(1).toDate();
+//        }else{
+//            endDate =dt.plusMonths(1).toDate();
+//        }
+        List<UserRecipe> RecipesOfWeek = recipesDao.listOfRecipes(loggedInUser.getId(),today,dt.plusWeeks(1).toDate());
         model.addAttribute("recipes", RecipesOfWeek);
+        model.addAttribute("loggedInUser",userSvc.loggedInUser() );
         return  "users/dashboard";
     }
 
