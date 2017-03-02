@@ -4,6 +4,7 @@
     ...
 </head>
 <body>
+<div th:replace="fragments/navbar :: top-nav">...</div>
 <div class="container">
     <h3>Add a Recipe</h3>
 
@@ -68,7 +69,7 @@
             <!--</div>-->
             <div class="input-field col s3">
                 <select id="ingredient">
-                    <option value="" class="disabled">Please Choose Category</option>
+                    <option value="" class="disabled">Choose and Ingredient</option>
                 </select>
             </div>
             <div class="input-field col s3">

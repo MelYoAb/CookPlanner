@@ -108,9 +108,21 @@ video#bgvid {
     width: 200px;
 }
 
-.navbar-avatar {
+.userView {
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 30px;
+}
+
+.navbar-logo {
     width: auto;
-    height: 100px;
+    height: 125px;
+}
+
+.navbar-logo2 {
+    width: auto;
+    height: 150px;
+    padding: 15px;
 }
 
 /* Dashboard */
@@ -184,4 +196,14 @@ video#bgvid {
     background-color: #fff;
     width: 400px;
     height: 650px;
+}
+
+/*View All Recipes*/
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
 }
