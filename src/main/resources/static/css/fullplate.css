@@ -46,7 +46,7 @@ video#bgvid {
     z-index: 1;
     position: absolute;
     width: 20%;
-    top: 30%;
+    top: 20%;
     left: 40%;
     right: 50%;
     display: -webkit-box;
@@ -201,18 +201,15 @@ video#bgvid {
 }
 
 /*View All Recipes*/
-.flex {
-    width: 100%
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*display: -webkit-flex;*/
-    /*-webkit-flex-direction: row;*/
-    /*-webkit-flex-wrap: wrap;*/
+.custom-img {
+    width: 100%;
+    background-size: cover;
+    height: 300px;
 }
 
 .card {
-    margin: 10px;
+    /*margin: 10px;*/
+    height: 500px;
 }
 /*Create a Recipe*/
 .create-form {
