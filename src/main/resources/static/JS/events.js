@@ -119,17 +119,15 @@ function listUpcomingEvents() {
 
         $('#calendar').fullCalendar({
             header: {
-                left: 'prev,next today',
+                left: 'prev,next',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: ''
             },
-            defaultDate: '2017-02-12',
+            defaultDate: '2017-03-12',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             fixedWeekCount: false,
             weekNumbers: false,
-
-
             selectable: true,
             selectHelper: true,
             select: function(start, end) {
@@ -171,7 +169,7 @@ $(document).ready(function() {
         }).done(function(calendars) {
 
             //the HTTP response-> an array of JSON objects->
-            console.log("these are from the data base")
+            console.log("these are from the data base");
             console.log(calendars);
             var i;
             var obj;
