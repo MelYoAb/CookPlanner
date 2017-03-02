@@ -5,15 +5,15 @@
 </head>
 <body class="background">
     <ul th:replace="fragments/navbar :: navbar">...</ul>
+    <form th:action="@{/view/1}" th:method="post">
+        <input type="submit" value="Recipe of the week"/>
+    </form>
+    <form th:action="@{/view/2}" th:method="post">
+        <input type="submit" value="Recipe of the week"/>
+    </form>
     <div id="image-block">
-        <div id="masonry">
-            <img src="../../recipe_img/barbecue-quesadillas.jpg" class="masonry"/>
-            <img src="../../recipe_img/chicken-enchiladas.jpg" class="masonry"/>
-            <img src="../../recipe_img/grilled-fish.jpg" class="masonry"/>
-            <img src="../../recipe_img/beef-stew.jpg" class="masonry"/>
-            <img src="../../recipe_img/apple-cinnamon-pork-chops.jpg" class="masonry"/>
-            <img src="../../recipe_img/ham-beans.jpg" class="masonry"/>
-            <img src="../../recipe_img/tuscan-pasta.jpg" class="masonry"/>
+        <div id="masonry" th:each="userRecipe  : ${recipes}">
+            <img th:src="${'/recipe_img/'+ userRecipe.recipe.image}"/>
         </div>
     </div>
     <div class="single-recipe"></div>

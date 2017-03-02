@@ -5,7 +5,6 @@
 </head>
 <body>
 <div class="overlay">
-    <img src="../img/Logo_Circle.svg" class="logo"/>
     <!--<h1>Full Plate</h1>-->
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" poster="../img/static-food.jpg"
            id="bgvid">
@@ -13,8 +12,11 @@
         <source src="../img/food.mp4" type="video/mp4"/>
     </video>
     <div class="skinny">
-        <a href="#" id="sign-in" class="btn waves-effect waves-teal scale-transition">SIGN IN</a>
-        <a href="#" id="sign-up" class="btn waves-effect waves-teal scale-transition">SIGN UP</a>
+        <img src="../img/Logo_Circle.svg" class="logo"/>
+        <div class="sign-buttons">
+            <a href="#" id="sign-in" class="btn waves-effect waves-teal scale-transition">SIGN IN</a>
+            <a href="#" id="sign-up" class="btn waves-effect waves-teal scale-transition">SIGN UP</a>
+        </div>
         <form class="login scale-transition scale-out" th:action="@{/login}" method="post">
             <div class="input-field">
                 <label class="login scale-transition scale-out" for="username">Username</label>

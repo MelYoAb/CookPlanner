@@ -30,7 +30,7 @@ public class RecipesViewController {
 
     @GetMapping("/view")
     public String view(){
-        return "recipes/display";
+        return "users/dashboard";
     }
 
     @PostMapping("/view/{id}")
@@ -46,7 +46,7 @@ public class RecipesViewController {
         }
         List<UserRecipe> RecipesOfWeek = recipesDao.listOfRecipes(loggedInUser.getId(),today,endDate);
         model.addAttribute("recipes", RecipesOfWeek);
-        return  "recipes/display";
+        return  "users/dashboard";
     }
 
 

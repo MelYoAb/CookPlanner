@@ -386,7 +386,7 @@ VALUES (30, 'tuscan-pasta.jpg',
    mixture. Roll up each tortilla, jelly-roll fashion. Place seam-side down in sauce in baking dish.  Pour remaining 1/2 can
    enchilada sauce over enchiladas. Sprinkle with remaining cheese. Cover, bake at 350 degrees for 25 minutes or until hot. top with sour cream.',
    20, 1, 'Easy Chicken Enchiladas'),
-  (300, '',
+  (300, 'beef-stew.jpg',
    'Place flour in a plastic bag. Add meat cubes a few at a time, shaking to coat. In a large saucepan, brown meat, half
    at a time, in hot oil. Drain fat. In the bottom of a 3 1/2 or 4 qt crock pot, layer meat, oinion, potatoes, vegetables.
    Combine vegetable juice, water, soy sauce, marjoram, oregano, bay leaf, and pepper. Pour over meat and vegetables . Cover

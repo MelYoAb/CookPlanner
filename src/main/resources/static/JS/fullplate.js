@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('#sign-in').click(function() {
         $('#sign-in').addClass('scale-out');
         $('#sign-up').addClass('scale-out');
-        $('.login').removeClass('scale-out').addClass('scale-in');
+        $('.login').removeClass('scale-out').addClass('scale-in').addClass('login-form');
     });
 
     //required by materialize for dropdown menu on create recipe form

@@ -170,7 +170,7 @@ $(document).ready(function() {
         }).done(function(calendars) {
 
             //the HTTP response-> an array of JSON objects->
-            console.log("these are from the data base")
+            console.log("these are from the data base");
             console.log(calendars);
             var i;
             var obj;
