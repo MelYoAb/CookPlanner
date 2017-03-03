@@ -19,4 +19,7 @@ public interface Ingredients extends CrudRepository<Ingredient, Long> {
             "GROUP BY i.id" )
     List<Ingredient> findIndredientsPerLoggedinUser(long id);*/
 //    AND ur.date > NOW())
+
+    @Query( "SELECT i FROM Ingredient i")
+    List<Ingredient> findAllIndredients();
 }

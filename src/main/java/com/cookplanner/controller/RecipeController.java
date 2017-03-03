@@ -1,9 +1,6 @@
 package com.cookplanner.controller;
 
-import com.cookplanner.models.Category;
-import com.cookplanner.models.Ingredient;
-import com.cookplanner.models.IngredientList;
-import com.cookplanner.models.Recipe;
+import com.cookplanner.models.*;
 import com.cookplanner.repositories.Categories;
 import com.cookplanner.repositories.Ingredients;
 import com.cookplanner.repositories.IngredientsList;
@@ -11,12 +8,14 @@ import com.cookplanner.repositories.Recipes;
 import com.cookplanner.services.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -59,8 +58,14 @@ public class RecipeController {
 
     @GetMapping("/create")
     public String viewCreateRecipeForm(Model model) {
-        model.addAttribute(new Recipe());
+        model.addAttribute("recipe", new Recipe());
         return "/recipes/create";
+    }
+
+    @GetMapping("/ingredients.json")
+    public @ResponseBody
+    List<Ingredient> retrieveAllIngredients(){
+        return  ingredientsDAO.findAllIndredients();
     }
 
     @PostMapping("/create")
@@ -76,6 +81,7 @@ public class RecipeController {
         if (validation.hasErrors()) {
             model.addAttribute("errors", validation);
             model.addAttribute("recipe", recipe);
+            model.addAttribute("ingredients", ingredientsDAO.findAllIndredients());
             return "recipes/create";
         }
 

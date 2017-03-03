@@ -5,12 +5,6 @@
 </head>
 <body class="background">
     <ul th:replace="fragments/navbar :: navbar">...</ul>
-    <form th:action="@{/view/1}" th:method="post">
-        <input type="submit" value="Recipe of the week"/>
-    </form>
-    <form th:action="@{/view/2}" th:method="post">
-        <input type="submit" value="Recipe of the week"/>
-    </form>
     <div id="image-block">
         <div id="masonry" th:each="userRecipe  : ${recipes}">
             <img th:src="${'/recipe_img/'+ userRecipe.recipe.image}"/>

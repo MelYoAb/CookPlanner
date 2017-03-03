@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
 import java.util.List;
@@ -29,13 +28,13 @@ public class GenerateRecipesController {
     @Autowired
     UserRecipes userRecipesDao;
 
+//    @GetMapping("/recipes")
+//    public String showForm(){
+//        return "recipes/generateRecipes";
+//    }
+
+
     @GetMapping("/recipes")
-    public String showForm(){
-        return "recipes/generateRecipes";
-    }
-
-
-    @PostMapping ("/recipes")
     public String retrieveAllData(Model model){
         User loggedInUser= userSvc.loggedInUser();
         Date today =new Date();
@@ -55,6 +54,7 @@ public class GenerateRecipesController {
             count++;
         }
         model.addAttribute("recipes", randomRecipesMonth);
+        model.addAttribute("loggedInUser",userSvc.loggedInUser());
         return  "calendar/signGoogle";
     }
 

@@ -61,6 +61,16 @@
     color: #060000;
 }
 
+#front-frozen {
+    background-color: #bababa;
+    color: #060000;
+}
+
+#front-dry {
+    background-color: #a9ba17;
+    color: #060000;
+}
+
 
 .bg_meat {
     background-image: url(../IMG/meat.jpg);
