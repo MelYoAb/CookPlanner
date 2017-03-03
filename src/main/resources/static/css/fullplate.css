@@ -197,9 +197,10 @@ video#bgvid {
 .list {
     background-color: #fff;
     width: 400px;
-    height: 650px;
+    height: auto;
 }
 
+.clear { clear: both; }
 /*View All Recipes*/
 .custom-img {
     width: 100%;
