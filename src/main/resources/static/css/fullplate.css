@@ -190,23 +190,6 @@ video#bgvid {
     margin-right: 200px;
 }
 
-/*.fc-view-container {*/
-    /*border: 1px solid darkgrey;*/
-    /*background-color: #fff;*/
-    /*z-index: 5;*/
-/*}*/
-
-/*.fc table {*/
-    /*table-layout: fixed;*/
-/*}*/
-
-/*.fc-unthemed td, .fc-unthemed .fc-divider {*/
-    /*border-left: 1px solid darkgrey;*/
-    /*border-right: 1px solid darkgrey;*/
-/*}*/
-
-
-
 /*Shopping List*/
 .list-bg {
     background: url("../img/mushrooms.jpg");
