@@ -63,6 +63,7 @@ public class AuthenticationController {
             model.addAttribute("user", user);
             return "/users/register";
         }
+
         String hashedPassword = encoder.encode(user.getPassword());
         user.setPassword(hashedPassword);
         User newUser = usersRepository.save(user);

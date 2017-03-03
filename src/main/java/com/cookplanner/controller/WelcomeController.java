@@ -16,15 +16,16 @@ public class WelcomeController {
     @Autowired
     UserSvc userSvc;
 
-    @GetMapping("/welcome")
+    @GetMapping("/")
     public String homepage() {
         return "welcome";
     }
 
-    @GetMapping("/users/dashboard")
+    @GetMapping("/dashboard")
     public String showCollage(Model model) {
         User loggedInUser = userSvc.loggedInUser();
         model.addAttribute("loggedInUser", loggedInUser);
         return"users/dashboard";
     }
 }
+
