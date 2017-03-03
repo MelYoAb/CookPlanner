@@ -39,8 +39,10 @@ $(document).ready(function(){
         }
     );
 
-    // $(".masonry > img").click(function(){
-    //     $(".single-recipe").animate({"right": "+=500px"}, "slow");
-    // });
+    //Dashboard animation
+    $(".content").click(function(){
+        $(".recipe-text").show().addClass('sliding-div');
+        $(".recipe-text").animate({"right": "+=500px"}, "slow");
+    });
 
 });
