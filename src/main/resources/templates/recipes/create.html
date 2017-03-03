@@ -12,19 +12,19 @@
         <div class="row">
         <div class="input-field col s9">
             <label for="title">Title</label>
-            <input th:field="*{title}" id="title"/>
+            <input name="title" th:field="*{title}" id="title" type="text"/>
             <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
         </div>
         </div>
         <div class="row">
             <div class="input-field col s3">
                 <label for="prep_time">Prep Time (in minutes)</label>
-                <input th:field="*{prep_time}" id="prep_time"/>
+                <input name="prep_time" th:field="*{prep_time}" id="prep_time" type="text"/>
                 <p th:if="${#fields.hasErrors('prep_time')}" th:errors="*{prep_time}"/>
             </div>
             <div class="input-field col s3">
                 <label for="cook_time">Cook Time (in minutes)</label>
-                <input th:field="*{cook_time}" id="cook_time"/>
+                <input name="cook_time" th:field="*{cook_time}" id="cook_time" type="text"/>
                 <p th:if="${#fields.hasErrors('cook_time')}" th:errors="*{cook_time}"/>
             </div>
             <div class="input-field col s3">

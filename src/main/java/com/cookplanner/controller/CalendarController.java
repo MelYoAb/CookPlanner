@@ -33,7 +33,6 @@ public class CalendarController {
 
     }
 
-
     @GetMapping("/calendar")
     public String showCalendar(Model model){
         model.addAttribute("calendars", Collections.emptyList());
