@@ -34,7 +34,7 @@ public class CalendarController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/calendar")
     public String showCalendar(Model model){
         model.addAttribute("calendars", Collections.emptyList());
         User loggedInUser = userSvc.loggedInUser();
