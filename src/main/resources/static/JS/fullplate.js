@@ -40,9 +40,14 @@ $(document).ready(function(){
     );
 
     //Dashboard animation
-    $(".content").click(function(){
-        $(".recipe-text").show().addClass('sliding-div');
-        $(".recipe-text").animate({"right": "+=500px"}, "slow");
+    $(".panel").click(function(){
+        if ($(this).siblings('.recipe-text:first').is(':hidden')) {
+            $(this).siblings('.recipe-text').show().addClass('sliding-div').animate({"right": "+=500px"}, "slow");
+        } else {
+            $('.recipe-text').hide();
+        }
+
+
     });
 
 });
