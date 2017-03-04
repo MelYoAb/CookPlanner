@@ -12,6 +12,24 @@ import java.util.List;
 
 @Entity
 @Table(name = "ingredients")
+/*@NamedNativeQueries({
+    @NamedNativeQuery(
+            name    =   "sevemDaysIngredients",
+            query   =   "SELECT i.id, i.ingredient, i.categories_id" +
+            "FROM ingredients i\n" +
+            "  JOIN ingredients_list il\n" +
+            "    ON i.id = il.ingredient_id\n" +
+            "  JOIN recipes r\n" +
+            "    ON il.recipe_id = r.id\n" +
+            "  JOIN users_recipes ur\n" +
+            "    ON r.id = ur.recipes_id\n" +
+            "  JOIN users u\n" +
+            "    ON ur.user_id = u.id\n" +
+            "WHERE u.id = ?1 AND  (ur.date >= NOW() AND ur.date <= NOW() + INTERVAL 7 DAY)\n" +
+            "GROUP BY i.id",
+            resultClass=Ingredient.class
+    )
+})*/
 public class Ingredient {
 
     @Id

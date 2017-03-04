@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/users/dashboard") // user's home page, it can be any URL
+                .defaultSuccessUrl("/view") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 .and()
                 .authorizeRequests()
@@ -44,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout") // append a query string value
                 .and()
                 .authorizeRequests()
-                .antMatchers("/recipes") // only authenticated users can create ads
+                .antMatchers("/recipes", "/dashboard", "/calendar", "/all", "/create") // only authenticated users can create ads
                 .authenticated()
         ;
     }

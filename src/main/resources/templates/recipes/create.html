@@ -8,9 +8,13 @@
 <div class="container">
     <h3>Add a Recipe</h3>
 
-    <form class="create-form z-depth-5" th:action="@{/create}" th:method="post" th:object="${recipe}"
-          enctype="multipart/form-data">
+    <form class="create-form z-depth-5" th:action="@{/create}" th:method="post" th:object="${recipe}" enctype="multipart/form-data">
         <div class="row">
+        <div class="input-field col s9">
+            <label for="title">Title</label>
+            <input name="title" th:field="*{title}" id="title" type="text"/>
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
+        </div>
             <div class="input-field col s9">
                 <label for="title">Title</label>
                 <input th:field="*{title}" id="title" name="title" type="text"/>
@@ -20,11 +24,13 @@
         <div class="row">
             <div class="input-field col s3">
                 <label for="prep_time">Prep Time (in minutes)</label>
+                <input name="prep_time" th:field="*{prep_time}" id="prep_time" type="text"/>
                 <input th:field="*{prep_time}" id="prep_time" name="prep_time" type="number"/>
                 <p th:if="${#fields.hasErrors('prep_time')}" th:errors="*{prep_time}"/>
             </div>
             <div class="input-field col s3">
                 <label for="cook_time">Cook Time (in minutes)</label>
+                <input name="cook_time" th:field="*{cook_time}" id="cook_time" type="text"/>
                 <input th:field="*{cook_time}" id="cook_time" name="cook_time" type="number"/>
                 <p th:if="${#fields.hasErrors('cook_time')}" th:errors="*{cook_time}"/>
             </div>
