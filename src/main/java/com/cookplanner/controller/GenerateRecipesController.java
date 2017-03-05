@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by abdelmoughit on 2/28/2017.
+ * @author Created by abdelmoughit on 2/28/2017.
  */
 @Controller
 public class GenerateRecipesController {
