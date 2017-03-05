@@ -9,7 +9,7 @@
     <h1>Recipe Box</h1>
     <div class="row">
         <div class="flex col s12 m12 l12">
-            <div class="card col l4" th:each="recipe : ${recipes}">
+            <div class="card col l4 hoverable" th:each="recipe : ${recipes}">
                 <div class="card-image">
                     <img class="responsive-image custom-img" th:src="${'/recipe_img/' + recipe.image}"/>
                 </div>
