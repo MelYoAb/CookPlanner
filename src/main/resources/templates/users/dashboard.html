@@ -12,8 +12,7 @@
             </div>
             <div class="recipe-text hidden">
                 <p th:text="${userRecipe.recipe.title}"></p>
-                <p><span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
-                <p><span th:text="${userRecipe.recipe.prep_time}"></span> minutes</p>
+                <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes     Cook Time: <span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
                 <p th:text="${userRecipe.recipe.instruction}"></p>
             </div>
         </div>
@@ -21,3 +20,5 @@
 <div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>
+
+
