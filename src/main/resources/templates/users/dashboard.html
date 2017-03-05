@@ -6,11 +6,19 @@
 <body class="background">
     <ul th:replace="fragments/navbar :: navbar">...</ul>
     <div id="image-block">
-        <div id="masonry" th:each="userRecipe  : ${recipes}">
-            <img th:src="${'/recipe_img/'+ userRecipe.recipe.image}"/>
+        <div class="masonry" th:each="userRecipe  : ${recipes}">
+            <div class="panel">
+                <img class="content" th:src="${'/recipe_img/'+ userRecipe.recipe.image}"/>
+            </div>
+            <div class="recipe-text hidden">
+                <p th:text="${userRecipe.recipe.title}"></p>
+                <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes     Cook Time: <span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
+                <p th:text="${userRecipe.recipe.instruction}"></p>
+            </div>
         </div>
     </div>
-    <div class="single-recipe"></div>
 <div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>
+
+

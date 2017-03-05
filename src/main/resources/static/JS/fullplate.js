@@ -14,22 +14,6 @@ $(document).ready(function(){
     //required by materialize for dropdown menu on create recipe form
     $('select').material_select();
 
-    //when btn is clicked, adds more ingredient fields
-    var counter = 1;
-    var limit = 10;
-    $('#add-input').click(function() {
-        if (counter == limit)  {
-            alert("You have reached the limit of adding " + counter + " inputs");
-        } else {
-            $('select').material_select('destroy');
-            $('.dynamic-input').append('<div class="input-field col s3"><select><option class="allIngredients" ' +
-                'value="" class="disabled"></option></select></div><div class="input-field col s3">' +
-                '<label for="qty">Quantity</label><input name="qty" id="qty' + counter + '" type="text"/></div>');
-            $('select').material_select();
-            counter ++;
-        }
-    });
-
     //navbar options
     $('.button-collapse').sideNav({
             menuWidth: 200,
@@ -39,8 +23,37 @@ $(document).ready(function(){
         }
     );
 
-    // $(".masonry > img").click(function(){
-    //     $(".single-recipe").animate({"right": "+=500px"}, "slow");
+    //Dashboard animation
+    $(".panel").click(function(){
+        if ($(this).siblings('.recipe-text:first').is(':hidden')) {
+            $(this).siblings('.recipe-text').show().addClass('sliding-div').animate({"right": "+=500px"}, "slow");
+        } else {
+            $('.recipe-text').hide();
+        }
+    });
+
+
+    //Shopping list animation
+    // var speed = 33;
+    // var delay = 1000;
+    // var xElement = 0;
+    //
+    // $('.animate-strikethrough').click(function() {
+    //     var x = 0;
+    //     xElement +=1;
+    //
+    //     setTimeout(function() {
+    //         setInterval(function() {
+    //             x +=1;
+    //             $('<del>').html($(this).text().substr(0,x));
+    //             $(this).html($(this).text().substr(x));
+    //             $(this).prepend($('<del>'));
+    //         }, speed);
+    //     }, delay * xElement);
     // });
+
+    $('.strikethrough').click(function() {
+        $(this).addClass('animate-strikethrough');
+    })
 
 });

@@ -46,7 +46,7 @@ video#bgvid {
     z-index: 1;
     position: absolute;
     width: 20%;
-    top: 30%;
+    top: 20%;
     left: 40%;
     right: 50%;
     display: -webkit-box;
@@ -60,12 +60,21 @@ video#bgvid {
     display: inline-block;
 }
 
-/* Registration Form */
-.background {
-    background: url("../img/cutting-board.jpg");
+/*background image for rest of site*/
+body {
+    background: url("../img/cutting-board.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-position: center;
 }
+
+/* Registration Form */
+/*.background {*/
+    /*background: url("../img/cutting-board.jpg");*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+/*}*/
 .register {
     position: relative;
     margin: 5% auto;
@@ -86,6 +95,11 @@ video#bgvid {
     background-size: cover;
     background-position: center;
     border-radius: 0 2px 2px 0;
+}
+
+.reg-left > h4 {
+    font-weight: 200;
+    font-style: italic;
 }
 
 .reg-right {
@@ -128,16 +142,29 @@ video#bgvid {
 }
 
 /* Dashboard */
-#image-block {
-    width: 70%;
-}
-#masonry {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 700px;
-    max-width: 65%;
+/*#image-block {*/
+    /*width: 70%;*/
+/*}*/
+
+.masonry {
     margin-left: 200px;
+    box-sizing: border-box;
+    column-count: 3;
+    column-gap: 0;
+    position: relative;
+}
+.panel {
+    margin: 0;
+    padding: 5px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.content {
+    padding: 10px;
+    overflow: hidden;
+    width: 100%;
 }
 
 #masonry img {
@@ -154,6 +181,15 @@ video#bgvid {
     opacity: 1;
 }
 
+.hidden {
+    display: none;
+}
+
+.sliding-div {
+    background-color: #8bc34a;
+    padding: 20px;
+}
+
 /* Calendar */
 .cal-bg {
     margin: 40px 10px;
@@ -168,52 +204,65 @@ video#bgvid {
     margin-right: 200px;
 }
 
-.fc-view-container {
-    border: 1px solid darkgrey;
-    background-color: #fff;
-    z-index: 5;
-}
-
-.fc table {
-    table-layout: fixed;
-}
-
-.fc-unthemed td, .fc-unthemed .fc-divider {
-    border-left: 1px solid darkgrey;
-    border-right: 1px solid darkgrey;
-}
-
-/*.fc-widget-content, .fc-widget-header {*/
-    /*padding: 0;*/
-/*}*/
-
 /*Shopping List*/
-.list-bg {
-    background: url("../img/mushrooms.jpg");
-    background-size: cover;
-    background-position: center;
-}
 
 .list {
     background-color: #fff;
     width: 400px;
-    height: 650px;
+    height: auto;
+    margin: auto;
+    margin-top: 150px;
+    padding: 40px;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 2em;
+}
+
+.list-header {
+    text-decoration: underline;
+}
+
+.clear {
+    clear: both;
+}
+
+.animate-strikethrough {
+    display: inline-block;
+    position: relative;
+}
+
+.animate-strikethrough:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: -0.7em;
+    background: black;
+    transform-origin: left center;
+    animation: strikethrough 1s 0.5s cubic-bezier(.55, 0, .1, 1) 1;
+    transition: transform 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+
+@keyframes strikethrough {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
 /*View All Recipes*/
-.flex {
-    width: 100%
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*display: -webkit-flex;*/
-    /*-webkit-flex-direction: row;*/
-    /*-webkit-flex-wrap: wrap;*/
+.custom-img {
+    width: 100%;
+    background-size: cover;
+    height: 300px;
 }
 
 .card {
-    margin: 10px;
+    height: 500px;
 }
+
 /*Create a Recipe*/
 .create-form {
     background-color: #fff;
@@ -221,3 +270,4 @@ video#bgvid {
     padding-left: 50px;
     padding-bottom: 50px;
 }
+
