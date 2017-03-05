@@ -3,18 +3,15 @@
 <head th:replace="fragments/header :: head(title=${'Shopping List'})">
     ...
 </head>
-<body class="list-bg">
-<div th:replace="fragments/navbar :: top-nav">...</div>
-<div  class="list z-depth-5">
-<div >
-    <p th:each="ingredient : ${ingredientList}" ><span th:text="${ingredient.ingredient}"></span></p>
-    <!--<form th:action="${'/ingredient/delete'}" th:method="post" style="display:inline-block">-->
-        <!--<input type="hidden" name="id" th:value="${ingredient.id}" />-->
-        <!--<button class="btn-flat">Delete</button>-->
-    <!--</form>-->
-</div>
-    <br class="clear" />
+<body>
+    <div th:replace="fragments/navbar :: top-nav">...</div>
+    <div  class="list z-depth-5">
+        <h2 class="list-header">shopping list</h2>
+        <div>
+            <p th:each="ingredient : ${ingredientList}" ><span class="strikethrough" th:text="${ingredient.ingredient}"></span></p>
+        </div>
+        <br class="clear" />
     </div>
-<div th:replace="fragments/footer :: footer">...</div>
+    <div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>
