@@ -70,11 +70,6 @@ body {
 }
 
 /* Registration Form */
-/*.background {*/
-    /*background: url("../img/cutting-board.jpg");*/
-    /*background-size: cover;*/
-    /*background-position: center;*/
-/*}*/
 .register {
     position: relative;
     margin: 5% auto;
@@ -188,6 +183,8 @@ body {
 .sliding-div {
     background-color: #8bc34a;
     padding: 20px;
+    height: auto;
+    overflow-y: auto;
 }
 
 /* Calendar */
@@ -266,6 +263,7 @@ body {
 /*Create a Recipe*/
 .create-form {
     background-color: #fff;
+    margin-top: 150px;
     padding-top: 50px;
     padding-left: 50px;
     padding-bottom: 50px;
