@@ -4,25 +4,30 @@
     ...
 </head>
 <body>
-    <ul th:replace="fragments/navbar :: navbar">...</ul>
-    <div id="image-block">
-        <h1>This Week's Menu</h1>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li th:each="userRecipe  : ${recipes}">
-                <div class="collapsible-header light-green white-text" th:text="${userRecipe.recipe.title}"></div>
-                <div class="collapsible-body">
-                    <div class="image-target" th:style="'background-image: url(/recipe_img/' + ${userRecipe.recipe.image} + ')'"></div>
-                    <ul th:each="ingredients  : ${userRecipe.recipe.ingredientLists}">
-                        <li th:text="${ingredients.ingredient.ingredient}"></li>
-                    </ul>
-                    <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes     Cook Time: <span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
-                    <p th:text="${userRecipe.recipe.instruction}"></p>
-                </div>
-            </li>
-        </ul>
-    </div>
+<ul th:replace="fragments/navbar :: navbar">...</ul>
+<div th:if="${!recipes.isEmpty()}" id="image-block">
+    <h1>This Week's Menu</h1>
+    <ul class="collapsible" data-collapsible="accordion">
+        <li th:each="userRecipe  : ${recipes}">
+            <div class="collapsible-header light-green white-text" th:text="${userRecipe.recipe.title}"></div>
+            <div class="collapsible-body">
+                <div class="image-target" th:style="'background-image: url(/recipe_img/' + ${userRecipe.recipe.image} + ')'"></div>
+                <ul th:each="ingredients  : ${userRecipe.recipe.ingredientLists}">
+                    <li th:text="${ingredients.ingredient.ingredient}"></li>
+                </ul>
+                <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes     Cook Time: <span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
+                <p th:text="${userRecipe.recipe.instruction}"></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:if="${recipes.isEmpty()}">
+    <h1>Welcome</h1>
+</div>
 <div th:replace="fragments/footer :: footer">...</div>
 </body>
 </html>
+
 
 
