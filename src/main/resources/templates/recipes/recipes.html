@@ -16,6 +16,9 @@
                 <div class="card-content">
                     <h5 th:text="${recipe.title}"></h5>
                 </div>
+                <div class="card-action">
+                    <a th:href="@{/single/{id}(id=${recipe.id})}">View This Recipe</a>
+                </div>
             </div>
         </div>
     </div>
