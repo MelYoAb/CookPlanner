@@ -6,17 +6,16 @@
     <link href='/library-calendar/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
     <div th:replace="fragments/header :: head(title=${'Calendar'})" ></div>
 </head>
-<body class="background cal-bg">
-
-<div th:replace="fragments/navbar :: navbar">...</div>
-
-<div id='calendar'></div>
-
+<body>
+<ul th:replace="fragments/navbar :: navbar">...</ul>
+<div>
+    <div id='calendar'></div>
+</div>
 <!--div that contain the google  sign in and sign out -->
 <div class="container">
     <div class="row">
-        <div class="col l8 offset-l2">
-            <p>Merge your Google Calendar for added meal planning functionality.</p>
+        <div class="col s4 offset-s4">
+            <p>Merge your Google Calendar</p>
             <!--Add buttons to initiate auth sequence and sign out-->
             <button id="authorize-button" class="btn waves-effect waves-light" style="display: none;">AUTHORIZE</button>
             <button id="signout-button" class="btn waves-effect waves-light" style="display: none;">SIGN OUT</button>
@@ -25,13 +24,9 @@
     </div>
 </div>
 
-<script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous">
-</script>
+
+<div th:replace="fragments/footer :: footer">...</div>
 <script src='/library-calendar/moment.min.js'></script>
-<script src='/library-calendar/jquery.min.js'></script>
 <script src='/library-calendar/fullcalendar.min.js'></script>
 <script src='/library-calendar/gcal.js'></script>
 
