@@ -277,7 +277,7 @@ VALUES (30, 'tuscan-pasta.jpg',
    warm. Add rice, parsley, and remaining 1/4 cup broth to pan; stir to combine. Return to oven; cook about 5 minutes or until
    rice is heated through. Serve rice mixture with chicken.',
    20, 2, 'Chicken and Roasted Vegetable Rice'),
-  (35, 'chili',
+  (35, 'chili.jpeg',
    '1. Brown ground beef in a skillet together with chopped onions and minced garlic. Drain. 2. Rinse and drain kidney beans.
    In a large pot, combine the meat mixture with the remaining ingredients. Bring to a boil and simmer for 20 minutes.',
    10, 2, 'Classic Chili'),
@@ -374,7 +374,7 @@ VALUES (30, 'tuscan-pasta.jpg',
    them into the liquid, and cook until the internal temperature of the pork reaches between 145 degrees F. (medium rare),
    with a 3-minute rest, and 160 degrees F. (medium), 3 to 4 minutes per side. Serve the chops with the apple mixture spooned on top',
    10, 2, 'Apple Cinnamon Pork Chops'),
-  (25, 'chops-and-beans.jpg',
+  (25, 'chops-and-beans.jpeg',
    'Season pork chops with pepper. Heat oil in a large skillet over medium-high heat. Cook pork chops in hot oil until
    browned, 3 to 5 minutes per side. Pour beans and salsa over pork chops and season with cilantro. Bring to a boil,
    reduce heat to medium-low, cover the skillet, and simmer until pork chops are cooked no longer pink in the center,
