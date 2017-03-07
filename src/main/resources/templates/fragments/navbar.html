@@ -5,13 +5,13 @@
 </head>
 <body>
 <div th:fragment="navbar">
-    <ul class="side-nav fixed">
+    <ul id="slide-out" class="side-nav fixed">
         <li>
             <div class="userView" th:object="${loggedInUser}">
                 <div class="background">
-                    <img src="../../img/soapstone.jpg"/>
+                    <img src="/img/soapstone.jpg"/>
                 </div>
-                <a href="#"><img class="navbar-logo" src="../../img/Logo_Circle.svg"/></a>
+                <a href="#"><img class="navbar-logo" src="/img/Logo_Circle.svg"/></a>
                 <a href="#"><span th:text="*{first_name}" class="white-text name"></span></a>
                 <a href="#"><span th:text="*{email}" class="white-text email"></span></a>
             </div>
@@ -31,7 +31,7 @@
             <div class="divider"></div>
         </li>
         <li>
-            <a class="subheader">recipes</a>
+            <a class="subheader light-green white-text">Recipes</a>
         </li>
         <li>
             <a class="waves-effect" href="/all">VIEW ALL</a>
@@ -54,22 +54,11 @@
     <div class="navbar-fixed">
         <nav class="nav-extended light-green">
             <div class="nav-wrapper">
-                <a href="#"><img class="navbar-logo2" src="../../img/rectangle-logo.svg"/></a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#"><img class="navbar-logo2" src="/img/rectangle-logo.svg"/></a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/view">DASHBOARD</a></li>
                     <li><a href="/calendar">CALENDAR</a></li>
-                    <li><a href="/create">CREATE NEW</a></li>
-                    <li><a href="/all">VIEW ALL</a></li>
-                    <li>
-                        <form th:action="@{/logout}" method="post">
-                            <button class="btn-flat white-text" href="/login?logout">LOGOUT</button>
-                        </form>
-                    </li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="/users/dashboard.html">DASHBOARD</a></li>
-                    <li><a href="/">CALENDAR</a></li>
                     <li><a href="/create">CREATE NEW</a></li>
                     <li><a href="/all">VIEW ALL</a></li>
                     <li>
@@ -82,6 +71,17 @@
             <div class="extend"></div>
         </nav>
     </div>
+        <ul class="side-nav" id="slide-out">
+            <li><a href="/view">DASHBOARD</a></li>
+            <li><a href="/calendar">CALENDAR</a></li>
+            <li><a href="/create">CREATE NEW</a></li>
+            <li><a href="/all">VIEW ALL</a></li>
+            <li>
+                <form th:action="@{/logout}" method="post">
+                    <button class="btn-flat white-text" href="/login?logout">LOGOUT</button>
+                </form>
+            </li>
+        </ul>
 </div>
 </body>
 </html>
