@@ -15,6 +15,7 @@ video#bgvid {
     background: url("../img/static-food.jpg") no-repeat;
     background-size: cover;
 }
+
 @media screen and (max-device-width: 800px) {
     html {
         background: url("../img/cutting-board.jpg");
@@ -137,54 +138,29 @@ body {
 }
 
 /* Dashboard */
-/*#image-block {*/
-    /*width: 70%;*/
-/*}*/
+#image-block {
+    margin-left: 250px;
+    margin-right: 100px;
+}
 
-.masonry {
-    margin-left: 200px;
-    box-sizing: border-box;
-    column-count: 3;
-    column-gap: 0;
+.collapsible-body {
     position: relative;
-}
-.panel {
-    margin: 0;
-    padding: 5px;
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
+    z-index: 1;
+    background-color: white;
 }
 
-.content {
-    padding: 10px;
-    overflow: hidden;
+.collapsible-body .image-target {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.4;
+    height: 100%;
     width: 100%;
-}
-
-#masonry img {
-    width: 33.3%;
-    max-width: 100%;
-    transition: .8s opacity;
-}
-
-#masonry:hover img {
-    opacity: 0.3;
-}
-
-#masonry:hover img:hover {
-    opacity: 1;
-}
-
-.hidden {
-    display: none;
-}
-
-.sliding-div {
-    background-color: #8bc34a;
-    padding: 20px;
-    height: auto;
-    overflow-y: auto;
 }
 
 /* Calendar */
@@ -269,3 +245,13 @@ body {
     padding-bottom: 50px;
 }
 
+.row > h5 {
+    text-decoration: underline;
+}
+
+/*View single recipe*/
+.top-down{
+    margin-top: 150px;
+    background-color: #fff;
+    padding: 30px;
+}

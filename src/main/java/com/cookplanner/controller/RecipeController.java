@@ -12,10 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -141,4 +138,12 @@ public class RecipeController {
 
         return "redirect:/create";
     }
+
+    @GetMapping("/single/{id}")
+    public String viewSingle(@PathVariable long id, Model model) {
+        Recipe singleRecipe = recipesDao.findOne(id);
+        model.addAttribute("recipe", singleRecipe);
+        return "recipes/single";
+    }
+
 }

@@ -3,7 +3,7 @@
 <head th:replace="fragments/header :: head(title=${'Something New'})">
     ...
 </head>
-<body class="background">
+<body>
 <div th:replace="fragments/navbar :: top-nav">...</div>
 <div class="container">
     <form class="create-form z-depth-5" th:action="@{/create}" th:method="post" th:object="${recipe}"
