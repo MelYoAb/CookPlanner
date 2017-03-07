@@ -153,6 +153,7 @@ function listUpcomingEvents() {
             },
             eventLimit: true, // allow "more" link when too many events
             events: Events
+
         });
 
     });
@@ -163,6 +164,7 @@ $(document).ready(function() {
       $.ajax({
             url:"/calendar.json",
             async: true,
+
             beforeSend: function(  ) {
                 //calling this function that execute google calendar
                 handleClientLoad();
@@ -176,12 +178,16 @@ $(document).ready(function() {
             var obj;
             for(i=0; i<calendars.length;i++){
                 obj={title:calendars[i].recipe.title,
-                    start:calendars[i].date
+                    start:calendars[i].date,
+                    backgroundColor: '#378006'
                 };
+
                 Events.push(obj);
 
             }
+
     });
+
 });
 
 
