@@ -143,11 +143,6 @@ body {
     color: #424242 ;
 
 }
-/*@media only screen and (max-width : 992px) {*/
-    /*.image-block, #calendar{*/
-        /*margin-left: 20px;*/
-    /*}*/
-/*}*/
 
 /* Dashboard */
 #image-block {
@@ -234,8 +229,9 @@ body {
 
 /*View All Recipes*/
 .custom-img {
-    width: 100%;
+    /*width: 100%;*/
     background-size: cover;
+    background-position: center;
     height: 300px;
 }
 

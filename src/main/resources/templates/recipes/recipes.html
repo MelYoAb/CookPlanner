@@ -8,10 +8,10 @@
 <div class="container">
     <h1>Recipe Box</h1>
     <div class="row">
-        <div class="flex col s12 m12 l12">
-            <div class="card col l4 hoverable" th:each="recipe : ${recipes}">
-                <div class="card-image">
-                    <img class="responsive-img custom-img" th:src="${'/uploads/' + recipe.image}"/>
+        <div class="col s12 m12 l12">
+            <div class="card col s12 m6 l4 hoverable" th:each="recipe : ${recipes}">
+                <div class="card-image custom-img" th:style="'background-image: url(/uploads/' + ${recipe.image} + ')'">
+                    <!--<img class="responsive-img custom-img" th:src="${'/uploads/' + recipe.image}"/>-->
                 </div>
                 <div class="card-content">
                     <h5 class="truncate" th:text="${recipe.title}"></h5>

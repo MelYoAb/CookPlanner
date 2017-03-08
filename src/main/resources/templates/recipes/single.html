@@ -8,7 +8,7 @@
     <div class="container top-down">
         <h1>Single Recipe View</h1>
         <div>
-            <img class="responsive-image" th:src="${'/uploads/' + recipe.image}"/>
+            <img class="responsive-img" th:src="${'/uploads/' + recipe.image}"/>
             <h5 th:text="${recipe.title}"></h5>
             <ul th:each="ingredients  : ${recipe.ingredientLists}">
                 <li th:text="${ingredients.ingredient.ingredient}"></li>
