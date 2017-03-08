@@ -11,10 +11,10 @@
         <div class="flex col s12 m12 l12">
             <div class="card col l4 hoverable" th:each="recipe : ${recipes}">
                 <div class="card-image">
-                    <img class="responsive-image custom-img" th:src="${'/uploads/' + recipe.image}"/>
+                    <img class="responsive-img custom-img" th:src="${'/uploads/' + recipe.image}"/>
                 </div>
                 <div class="card-content">
-                    <h5 th:text="${recipe.title}"></h5>
+                    <h5 class="truncate" th:text="${recipe.title}"></h5>
                 </div>
                 <div class="card-action">
                     <a th:href="@{/single/{id}(id=${recipe.id})}">View This Recipe</a>
