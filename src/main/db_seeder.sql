@@ -1,8 +1,6 @@
 SET NAMES utf8;
 set CHARSET utf8;
 
-SET CHAR SET
-
 INSERT into categories (name)
 VALUES ('produce'),
   ('meats'),
