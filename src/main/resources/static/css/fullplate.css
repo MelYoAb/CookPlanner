@@ -137,16 +137,22 @@ body {
     padding: 15px;
 }
 
-@media only screen and (max-width : 992px) {
-    .image-block, #calendar{
-        margin-left: 20px;
-    }
+#hamburger {
+    font-size: 100px;
+    padding: 50px;
+    color: #424242 ;
+
 }
+/*@media only screen and (max-width : 992px) {*/
+    /*.image-block, #calendar{*/
+        /*margin-left: 20px;*/
+    /*}*/
+/*}*/
 
 /* Dashboard */
 #image-block {
-    margin-left: 250px;
-    margin-right: 200px;
+    padding-left: 250px;
+    padding-right: 200px;
 }
 
 .collapsible-body {
@@ -169,18 +175,14 @@ body {
     width: 100%;
 }
 
-.new-user {
+#new-user {
     background-color: white;
-    margin-left: 30%;
-    width: 50%;
     padding: 50px;
 }
 
 /* Calendar */
 #calendar {
     max-width: 900px;
-    margin-left: 250px;
-    margin-right: 200px;
 }
 
 /*Shopping List*/
@@ -259,4 +261,17 @@ body {
     margin-top: 150px;
     background-color: #fff;
     padding: 30px;
+}
+
+.dashboard {
+    padding-left: 250px;
+}
+
+@media only screen and (max-width : 992px) {
+    .dashboard{
+        padding-left: 0;
+    }
+    #topNav{
+        background-color: #8bc34a;
+    }
 }

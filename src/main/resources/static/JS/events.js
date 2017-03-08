@@ -131,6 +131,7 @@ function listUpcomingEvents() {
             weekNumbers: false,
             selectable: true,
             selectHelper: true,
+            height:700,
             select: function(start, end) {
                 var title = prompt('Event Title:');
                 var eventData;
