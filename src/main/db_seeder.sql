@@ -1,3 +1,8 @@
+SET NAMES utf8;
+set CHARSET utf8;
+
+SET CHAR SET
+
 INSERT into categories (name)
 VALUES ('produce'),
   ('meats'),
@@ -204,7 +209,7 @@ VALUES (30, 'tuscan-pasta.jpg',
     Meanwhile, in a medium frying pan, heat the olive oil over moderately low heat. Add the garlic and cook, stirring,
     for 1 minute. Add the cooked pasta and the garlic oil to the tomato mixture and toss.',
    15, 1, 'Spaghetti with Tomatoes, Black Olives, Garlic, and Feta Cheese'),
-  (480, 'tuscan-pasta.jpg',
+  (480, 'ham-beans.jpg',
    'Rinse and sort the beans for any pebbles. Add the the rinsed beans, onion powder, salt, pepper, and ham to the
    crock pot. Add water. Cover and cook on low about 8 hours, until beans are tender. Remove ham bone, shanks or hocks
    and pull off the meat. Add meat to the crock pot and mix. Serve with cornbread.',
