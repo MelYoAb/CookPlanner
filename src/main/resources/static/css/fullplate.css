@@ -43,6 +43,7 @@ video#bgvid {
     z-index: 1;
     margin-bottom: 30px;
 }
+
 .overlay > .skinny {
     z-index: 1;
     position: absolute;
@@ -60,6 +61,16 @@ video#bgvid {
 .sign-buttons {
     display: inline-block;
 }
+
+/*@media only screen and (max-width : 992px) {*/
+    /*.overlay > .skinny{*/
+        /*z-index: 1;*/
+        /*position: absolute;*/
+        /*width: 40%;*/
+        /*top: 30%;*/
+        /*display: -webkit-box;*/
+    /*}*/
+/*}*/
 
 /*background image for rest of site*/
 body {
@@ -140,16 +151,11 @@ body {
 #hamburger {
     font-size: 100px;
     padding: 50px;
-    color: #424242 ;
+    color: #fff;
 
 }
 
 /* Dashboard */
-#image-block {
-    padding-left: 250px;
-    padding-right: 200px;
-}
-
 .collapsible-body {
     position: relative;
     z-index: 1;
