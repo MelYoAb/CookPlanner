@@ -8,20 +8,20 @@
 <ul th:replace="fragments/navbar :: navbar">...</ul>
 
 <div class="container dashboard">
-
     <div class="row">
-
-        <div class="col s12 m12 l12" th:if="${!recipes.isEmpty()}" id="image-block">
+        <div class="col s12 m12 l12" th:if="${!recipes.isEmpty()}">
             <h1>This Week's Menu</h1>
             <ul class="collapsible" data-collapsible="accordion">
                 <li th:each="userRecipe  : ${recipes}">
                     <div class="collapsible-header light-green white-text" th:text="${userRecipe.recipe.title}"></div>
                     <div class="collapsible-body">
-                        <div class="image-target" th:style="'background-image: url(/uploads/' + ${userRecipe.recipe.image} + ')'"></div>
+                        <div class="image-target responsive-img"
+                             th:style="'background-image: url(/uploads/' + ${userRecipe.recipe.image} + ')'"></div>
                         <ul th:each="ingredients  : ${userRecipe.recipe.ingredientLists}">
                             <li th:text="${ingredients.ingredient.ingredient}"></li>
                         </ul>
-                        <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes     Cook Time: <span th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
+                        <p>Prep Time: <span th:text="${userRecipe.recipe.prep_time}"></span> minutes Cook Time: <span
+                                th:text="${userRecipe.recipe.cook_time}"></span> minutes</p>
                         <p th:text="${userRecipe.recipe.instruction}"></p>
                     </div>
                 </li>
@@ -41,7 +41,9 @@
                 <li>Click "Authorize" and sign into your Google account.</li>
                 <li>Click "Generate Recipes" on the navigation bar to your left.</li>
             </ul>
-            <p>You will see the calendar fill with pre-generated recipes, and you no longer have to worry about, "What's for dinner?"!</p>
+            <p>You will see the calendar fill with pre-generated recipes, and you no longer have to worry about, "What's
+                for dinner?"!
+            </p>
         </div>
     </div>
 
